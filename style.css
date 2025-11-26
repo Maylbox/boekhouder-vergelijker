@@ -404,6 +404,12 @@ body {
   transform: translateX(30px);    /* naar rechts duwen */
 }
 
+.layout-with-ads {
+  max-width: 1400px !important;
+  width: 100%;
+}
+
+
 /* Banner zelf */
 .ad-banner img {
   max-width: 100%;
