@@ -413,7 +413,7 @@ body {
 }
 
 /* Responsiveness: op mobiel/tablet geen side-banners */
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .layout-with-ads {
     gap: 1rem;
   }
