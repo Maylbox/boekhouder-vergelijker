@@ -412,17 +412,6 @@ body {
   border-radius: 8px;
 }
 
-/* Responsiveness: op mobiel/tablet geen side-banners */
-@media (max-width: 900px) {
-  .layout-with-ads {
-    gap: 1rem;
-  }
-
-  .ad-column {
-    display: none;
-  }
-}
-
 /* Onder ~900px: 1 per rij */
 @media (max-width: 900px) {
   .cards {
