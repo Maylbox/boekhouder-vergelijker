@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boekhouder Vergelijken – Vind de Beste Boekhouder voor jouw Bedrijf</title>
+  <meta name="description" content="Vergelijk boekhouders in België en Nederland op prijs, diensten en reviews. Vind de perfecte boekhouder of boekhoudsoftware voor jouw onderneming.">
+  <link rel="canonical" href="https://boekhouder-vergelijken.nl/">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-row">
+    <div class="brand">
+      <img src="public/logo.png" alt="Boekhouder Vergelijken logo" class="logo">
+      <div>
+        <h1>Boekhouder Vergelijken</h1>
+        <p class="subtitle">Vergelijk prijzen, reviews en diensten van boekhouders in Nederland en België</p>
+      </div>
+    </div>
+
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-link is-active">Vergelijk boekhouders</a>
+      <a href="artikelen.html" class="nav-link">Artikelen</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container layout-with-ads">
+  <aside class="ad-column ad-left">
+    <div id="leftAds" class="ad-stack"></div>
+  </aside>
+
+  <section class="main-content">
+    <section class="controls">
+      <input type="text" id="searchInput" placeholder="Zoek op naam, stad of land..." />
+      <select id="sortSelect">
+        <option value="sponsored">Uitgelicht</option>
+        <option value="rating-desc">Sorteer op beoordeling</option>
+        <option value="price-asc">Prijs (laag → hoog)</option>
+        <option value="price-desc">Prijs (hoog → laag)</option>
+        <option value="name-asc">Sorteer op naam (A–Z)</option>
+      </select>
+    </section>
+    <section id="results" class="cards">
+    </section>
+  </section>
+
+  <aside class="ad-column ad-right">
+    <div id="rightAds" class="ad-stack"></div>
+  </aside>
+</main>
+
+
+<!-- <main class="container">
+  <section class="controls">
+    <input type="text" id="searchInput" placeholder="Zoek op naam, stad of land..." />
+    <select id="sortSelect">
+      <option value="rating-desc">Sorteer op beoordeling</option>
+      <option value="price-asc">Sorteer op prijs (laag–hoog)</option>
+      <option value="name-asc">Sorteer op naam (A–Z)</option>
+    </select>
+  </section>
+
+  <section id="results" class="cards">
+  </section>
+</main> -->
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span id="year"></span> boekhouder-vergelijken.be / .nl</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="nav.js"></script>
+
+</body>
+</html>

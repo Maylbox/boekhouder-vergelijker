@@ -1,0 +1,26 @@
+[
+{
+  "id": "peppol-e-facturatie-uitgelegd",
+  "title": "Wat is Peppol? E-facturatie uitgelegd",
+  "description": "Wat is Peppol, hoe werkt e-facturatie via Peppol, en voor wie is het interessant?",
+  "thumbnail": "https://einvoice.belgium.be/sites/default/files/styles/general_cover/public/uploads/articles/einv_header_peppolBLUEv2.jpg?itok=oEfXB1Ol",
+  "date": "2025-08-23",
+  "content": "articles/peppol.html"
+ },
+  {
+    "id": "beste-online-boekhoudsoftware-zzp-2025",
+    "title": "Beste online boekhoudsoftware voor ZZP'ers (2025)",
+    "description": "Een overzicht van populaire pakketten, met voor- en nadelen per type ondernemer.",
+    "thumbnail": "https://www.onderneming.nl/wp-content/uploads/2025/02/boekhoudprogramma-zzp.png",
+    "date": "2025-01-15",
+    "content": "articles/beste-online-boekhoudsoftware-zzp-2025.html"
+  },
+  {
+    "id": "boekhouder-vs-zelf-boekhouden",
+    "title": "Boekhouder vs. zelf boekhouden: wat past bij jou?",
+    "description": "Wanneer is een externe boekhouder slim en wanneer kun je beter voor software kiezen?",
+    "thumbnail": "https://rompslomp.nl/hubfs/kosten-boekhouder.jpg",
+    "date": "2025-01-10",
+    "content": "articles/boekhouder-vs-zelf-boekhouden.html"
+  }
+]
