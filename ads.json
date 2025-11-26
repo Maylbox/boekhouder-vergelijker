@@ -1,16 +1,16 @@
 [
   {
-    "id": "silvasoft-left",
+    "id": "ad-left",
     "position": "left",
-    "image": "https://cloudhints.be/wp-content/uploads/2022/11/9x16formaat_staand-gif.gif",
-    "alt": "Silvasoft – voordelig online boekhouden",
-    "link": "https://www.silvasoft.nl/"
+    "image": "public/ad_banner.png",
+    "alt": "ad banner voorbeeld",
+    "link": ""
   },
   {
-    "id": "digiboox-right",
+    "id": "ad-right",
     "position": "right",
-    "image": "https://cloudhints.be/wp-content/uploads/2022/11/9x16formaat_staand-gif.gif",
-    "alt": "DigiBoox – eenvoudige boekhoudsoftware voor zzp'ers",
-    "link": "https://www.digiboox.app/nl"
+    "image": "public/ad_banner.png",
+    "alt": "ad banner voorbeeld",
+    "link": ""
   }
 ]
