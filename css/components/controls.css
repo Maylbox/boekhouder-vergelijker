@@ -1,0 +1,17 @@
+.c-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: var(--space-5) 0;
+}
+
+.c-controls__input,
+.c-controls__select {
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.c-controls__input { flex: 1 1 220px; }
+.c-controls__select { flex: 0 0 220px; }

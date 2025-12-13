@@ -1,0 +1,6 @@
+.c-footer {
+  margin-top: var(--space-6);
+  padding: var(--space-4) 0;
+  font-size: 0.8rem;
+  color: #666;
+}

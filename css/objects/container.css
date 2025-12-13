@@ -1,0 +1,132 @@
+.o-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-5);
+}
+
+.o-container--wide {
+  max-width: var(--container-wide);
+}
+
+.o-layout-ads {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+
+.o-layout-ads__main {
+  flex: 0 0 900px; /* matches what you had */
+  min-width: 0;
+}
+
+.o-layout-ads__side {
+  flex: 0 0 180px;
+  margin-top: 10rem;
+  min-width: 0;
+}
+
+.o-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  justify-items: stretch;
+}
+
+.o-grid-cards > * {
+  min-width: 0; /* critical: prevents overflow/cut-off */
+}
+
+.o-main {
+  max-width: 1000px; 
+  margin: 0 auto;
+}
+
+/* Kill horizontal scrollbar site-wide (keep vertical scroll) */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Responsive layout rules */
+@media (max-width: 900px) {
+  .o-layout-ads {
+    display: block;
+  }
+  .o-layout-ads__side {
+    display: none; /* ads disabled / hidden */
+  }
+  .o-layout-ads__main {
+    flex: auto;
+  }
+}
+
+/* Mobile: 1-up grid + compact card layout */
+@media (max-width: 700px) {
+  /* container */
+  .o-container {
+    padding: var(--space-3);
+  }
+
+  /* 1 column grid on phones */
+  .o-grid-cards {
+    grid-template-columns: 1fr;
+    justify-items: center; /* center cards */
+  }
+
+  .c-card {
+    width: 100%;
+    max-width: 520px; /* prevents weird stretching and keeps it centered */
+  }
+
+  /* header: logo + text, no 3rd column */
+  .c-card__header {
+    grid-template-columns: 44px 1fr;
+    gap: var(--space-3);
+    align-items: start;
+  }
+
+  .c-card__logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .c-card__title {
+    font-size: 1.05rem;
+    line-height: 1.2;
+  }
+
+  .c-card__meta {
+    font-size: 0.8rem;
+  }
+
+  .c-card__price {
+    font-size: 0.95rem;
+  }
+
+  .c-card__summary {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    -webkit-line-clamp: 3;
+  }
+
+  .c-pill {
+    font-size: 0.78rem;
+    padding: 0.18rem 0.5rem;
+    margin: 0 0.2rem 0.2rem 0;
+  }
+
+  /* buttons: stacked */
+  .c-card__actions {
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+
+  .c-btn {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+  }
+}
+
+
+

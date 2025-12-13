@@ -1,0 +1,291 @@
+.c-header {
+  background: var(--color-brand);
+  color: var(--color-brand-ink);
+  padding: var(--space-5) 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.c-header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  position: relative;
+}
+
+.c-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+@media (min-width: 900px) {
+  .c-brand {
+    margin-left: -14rem;
+  }
+}
+
+
+.c-brand__logo {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+.c-brand__subtitle {
+  margin-top: var(--space-1);
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+/* Nav */
+.c-nav { display: flex; align-items: center; gap: var(--space-4); }
+
+.c-nav__toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 12px;
+  position: relative;
+  z-index: 10000;
+}
+
+.c-nav__icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+
+/* Dropdown menu (mobile) */
+.c-nav__menu {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-2);
+
+  padding: calc(var(--space-6) + 64px) var(--space-5) var(--space-6);
+
+  background:
+  radial-gradient(900px 500px at 70% 10%, rgba(255,255,255,0.10), transparent 60%),
+  radial-gradient(700px 400px at 30% 80%, rgba(255,255,255,0.06), transparent 65%),
+  rgba(8, 10, 18, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* animation setup */
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  visibility: hidden;
+
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease,
+    visibility 0ms linear 220ms;
+}
+
+.c-nav__menu::before {
+  content: "Menu";
+  display: block;
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto var(--space-3);
+  padding-bottom: var(--space-3);
+  color: rgba(255,255,255,0.9);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.c-nav__menu::after {
+  display: block;
+  max-width: 520px;
+  width: 100%;
+  margin: var(--space-4) auto 0;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.9rem;
+}
+
+
+.c-nav__menu .c-nav__link {
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 899px) {
+  .c-nav__toggle[aria-expanded="true"] + .c-nav__menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+
+    transition:
+      opacity 180ms ease,
+      transform 220ms ease,
+      visibility 0ms;
+  }
+}
+
+.c-nav__link {
+  display: block;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.c-nav__link:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-nav__menu {
+    transition: none;
+    transform: none;
+  }
+}
+
+.c-nav__link.is-active {
+  font-weight: 600;
+}
+
+/* Desktop nav: hamburger toggles slide-in links */
+@media (min-width: 900px) {
+  .c-nav__toggle { order: 2; }
+  .c-nav__menu   { order: 1; }
+  /* a single knob to shift the whole nav up/down */
+  .c-nav {
+    --nav-nudge-y: 40%; /* change this to move up/down */
+    transform: translateY(var(--nav-nudge-y));
+  }
+
+  .c-nav {
+    justify-content: flex-end;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  /* Hamburger keeps its subtle button look */
+  .c-nav__toggle {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: none;
+    transition: background 160ms ease, transform 160ms ease;
+  }
+
+  .c-nav__toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .c-nav__toggle:active {
+    transform: translateY(1px);
+  }
+
+  /* Menu becomes inline (not overlay) and SLIDES */
+  .c-nav__menu {
+    position: static;
+    inset: auto;
+    z-index: auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 0;
+    margin: 0;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    justify-content: flex-end; 
+    transform-origin: right center;
+
+    /* slide animation */
+    opacity: 0;
+    transform: translateX(10px);
+    pointer-events: none;
+    visibility: hidden;
+
+    gap: var(--space-4);
+    transition: opacity 180ms ease, transform 220ms ease, visibility 0ms linear 220ms;
+  }
+
+  /* Open state on desktop */
+  .c-nav.is-open .c-nav__menu {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    visibility: visible;
+
+    transition: opacity 180ms ease, transform 220ms ease, visibility 0ms;
+  }
+
+  /* No overlay-only polish on desktop */
+  .c-nav__menu::before,
+  .c-nav__menu::after {
+    content: none;
+  }
+
+  /* Links: clean inline */
+  .c-nav__link {
+    padding: 0;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .c-nav__link:hover {
+    text-decoration: underline;
+    background: none;
+  }
+
+  /* Undo overlay link sizing rules */
+  .c-nav__menu .c-nav__link {
+    max-width: none;
+    margin: 0;
+    font-size: inherit;
+  }
+}
+
+@media (max-width: 700px) {
+  .c-header {
+    padding: var(--space-4) 0;
+  }
+
+  .c-brand {
+    gap: var(--space-3);
+  }
+
+  .c-brand__logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  .c-brand h1 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .c-brand__subtitle {
+    display: none;
+  }
+}
+

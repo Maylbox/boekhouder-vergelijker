@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <!-- Top "book" -->
+  <path fill="#FFFFFF" d="M4.5 6.3c0-.55.45-1 1-1h13c.55 0 1 .45 1 1v1c0 .55-.45 1-1 1h-13c-.55 0-1-.45-1-1v-1z"></path>
+  <path fill="#FFFFFF" d="M5.9 5.3h1.1v3H5.9z"></path>
+
+  <!-- Middle "book" (slightly inset) -->
+  <path fill="#FFFFFF" d="M5.2 10.95c0-.55.45-1 1-1h12.3c.55 0 1 .45 1 1v1c0 .55-.45 1-1 1H6.2c-.55 0-1-.45-1-1v-1z"></path>
+  <path fill="#FFFFFF" d="M6.6 9.95h1.1v3H6.6z"></path>
+
+  <!-- Bottom "book" (slightly inset the other way) -->
+  <path fill="#FFFFFF" d="M4.8 15.6c0-.55.45-1 1-1h12.7c.55 0 1 .45 1 1v1c0 .55-.45 1-1 1H5.8c-.55 0-1-.45-1-1v-1z"></path>
+  <path fill="#FFFFFF" d="M6.2 14.6h1.1v3H6.2z"></path>
+</svg>

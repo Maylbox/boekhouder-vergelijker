@@ -1,0 +1,34 @@
+/* Headings */
+h1, h2, h3 {
+  margin: 0;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+/* Body text */
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Component-level typography */
+.c-card__title {
+  font-weight: 600;
+}
+
+.c-card__price {
+  font-weight: 600;
+}
+
+.c-btn {
+  font-weight: 500;
+}

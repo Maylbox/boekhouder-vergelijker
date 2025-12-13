@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Contact – Boekhouder Vergelijken</title>
+  <meta name="description" content="Neem contact op met Boekhouder Vergelijken. Stel je vraag over boekhouders, boekhoudsoftware of samenwerkingen.">
+  <link rel="canonical" href="https://boekhouder-vergelijken.nl/contact.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+
+<header class="c-header">
+  <div class="o-container o-container--wide">
+    <div class="o-main">
+      <div class="c-header__row">
+        <div class="c-brand">
+          <img src="/public/img/logo.png" alt="Boekhouder Vergelijken logo" class="c-brand__logo">
+          <div>
+            <h1>Boekhouder Vergelijken</h1>
+            <p class="c-brand__subtitle">
+              Vergelijk prijzen, reviews en diensten van boekhouders in Nederland en België
+            </p>
+          </div>
+        </div>
+
+        <nav class="c-nav" aria-label="Hoofdmenu">
+          <button class="c-nav__toggle" type="button" aria-label="Open menu" aria-expanded="false">
+            <img class="c-nav__icon" src="/public/img/hamburger.svg" alt="" aria-hidden="true">
+          </button>
+
+          <div class="c-nav__menu">
+            <a class="c-nav__link" href="/index.html">Boekhoudprogramma's</a>
+            <a class="c-nav__link" href="/articles.html">Artikelen</a>
+            <a class="c-nav__link" href="/contact.html">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="o-container o-container--wide">
+  <div class="o-main">
+
+    <section class="c-contact">
+  <h1>Contact</h1>
+
+  <p class="c-contact__intro">
+    Heb je een vraag over boekhouders, boekhoudsoftware of een samenwerking?
+    Vul het formulier hieronder in en we nemen zo snel mogelijk contact met je op.
+  </p>
+
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="c-form">
+  <input type="hidden" name="form-name" value="contact">
+  <p class="u-hidden">
+    <label>Laat leeg: <input name="bot-field" type="text"></label>
+  </p>
+
+    <div class="c-form__grid">
+      <div class="c-form__field">
+        <label for="name">Naam</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
+
+      <div class="c-form__field">
+        <label for="email">E-mailadres</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+
+      <div class="c-form__field c-form__field--full">
+        <label for="subject">Onderwerp</label>
+        <input id="subject" name="subject" type="text">
+      </div>
+
+      <div class="c-form__field c-form__field--full">
+        <label for="message">Bericht</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+    </div>
+
+    <div class="c-form__actions">
+      <button type="submit" class="c-button c-button--primary">Verzenden</button>
+    </div>
+  </form>
+</section>
+
+
+  </div>
+</main>
+
+<footer class="c-footer">
+  <div class="o-container">
+    <p>© <span id="year"></span> boekhouder-vergelijken.be / .nl</p>
+  </div>
+</footer>
+
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>
