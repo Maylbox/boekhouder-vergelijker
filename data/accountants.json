@@ -10,7 +10,7 @@
     "websiteLink": "https://www.moneymonk.nl/",
     "logo": "public/img/moneymonk.svg",
     "summary": "MoneyMonk is een eenvoudig en overzichtelijk online boekhoudpakket voor ZZP’ers en kleine ondernemers, gericht op snel en efficiënt boekhouden.",
-    "sponsoredOrder": 2
+    "sponsoredOrder": 1
   },
   {
     "id": 2,
@@ -37,7 +37,7 @@
     "websiteLink": "https://www.e-boekhouden.nl/",
     "logo": "https://play-lh.googleusercontent.com/BczA4hPSBxn4_j2inFsCWQ8W1bMtWqCgAfBn-MAfU8PlJ6yECcsdSQk_bvVm0kXrBg",
     "summary": "e-Boekhouden.nl is een populair en gebruiksvriendelijk online boekhoudpakket voor ZZP’ers en kleine ondernemers. Het biedt alle basisfunctionaliteiten voor facturatie, administratie en btw-aangifte, en is geschikt voor zowel starters als ervaren ondernemers.",
-    "sponsoredOrder": 1
+    "sponsoredOrder": 2
   }
   ,
   {

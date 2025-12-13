@@ -238,6 +238,7 @@
 
     transition: opacity 180ms ease, transform 220ms ease, visibility 0ms;
   }
+  .c-nav.no-anim .c-nav__menu { transition: none !important; }
 
   /* No overlay-only polish on desktop */
   .c-nav__menu::before,

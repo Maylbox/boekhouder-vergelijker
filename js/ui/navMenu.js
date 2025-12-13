@@ -26,7 +26,14 @@ export function initNavMenu() {
     setOpen(false);
   }
 
-  setOpen(isDesktop());
+  const nav = toggle.closest(".c-nav");
+if (nav) nav.classList.add("no-anim");
+
+setOpen(isDesktop()); // zet open op desktop
+
+requestAnimationFrame(() => {
+  if (nav) nav.classList.remove("no-anim");
+});
 
   toggle.addEventListener("click", (e) => {
     e.stopPropagation();

@@ -10,7 +10,13 @@ function escapeHtml(str) {
 export function renderCards(container, list) {
   if (!container) return;
 
-  container.innerHTML = (list || []).map(acc => {
+  const items = [...(list || [])].sort((a, b) => {
+    const ao = Number.isFinite(+a?.sponsoredOrder) ? +a.sponsoredOrder : 9999;
+    const bo = Number.isFinite(+b?.sponsoredOrder) ? +b.sponsoredOrder : 9999;
+    return ao - bo;
+  });
+
+  container.innerHTML = items.map(acc => {
     const name = escapeHtml(acc.name || "");
     const logo = acc.logo ? escapeHtml(acc.logo) : "";
     const city = escapeHtml(acc.city || "");
@@ -24,7 +30,6 @@ export function renderCards(container, list) {
     const hasLocation = Boolean(acc.city || acc.country);
     const locationText = `${city}${acc.city && acc.country ? ", " : ""}${country}`;
 
-    // rating: allow "7,8" etc
     const ratingNum = acc.rating != null
       ? Number(String(acc.rating).replace(",", "."))
       : NaN;
@@ -38,10 +43,7 @@ export function renderCards(container, list) {
       : "";
 
     const topRowHtml = (ratingHtml || priceHtml)
-      ? `<div class="c-card__toprow">
-           ${priceHtml}
-           ${ratingHtml}
-         </div>`
+      ? `<div class="c-card__toprow">${priceHtml}${ratingHtml}</div>`
       : "";
 
     const featuresHtml = (acc.features && acc.features.length)
@@ -50,39 +52,31 @@ export function renderCards(container, list) {
          </div>`
       : "";
 
-    const summaryHtml = summary
-      ? `<p class="c-card__summary">${summary}</p>`
-      : "";
+    const summaryHtml = summary ? `<p class="c-card__summary">${summary}</p>` : "";
 
     const actionsHtml = `
       <div class="c-card__actions">
-        ${
-          moreInfoLink
-            ? `<a class="c-btn c-btn--secondary" href="${moreInfoLink}" target="_blank" rel="noopener noreferrer">Meer info</a>`
-            : `<span></span>`
-        }
-        ${
-          websiteLink
-            ? `<a class="c-btn c-btn--primary" href="${websiteLink}" target="_blank" rel="noopener noreferrer">Naar website</a>`
-            : `<span></span>`
-        }
+        ${moreInfoLink
+          ? `<a class="c-btn c-btn--secondary" href="${moreInfoLink}" target="_blank" rel="noopener noreferrer">Meer info</a>`
+          : `<span></span>`}
+        ${websiteLink
+          ? `<a class="c-btn c-btn--primary" href="${websiteLink}" target="_blank" rel="noopener noreferrer">Naar website</a>`
+          : `<span></span>`}
       </div>
     `;
 
+    const isFeatured = Number(acc.sponsoredOrder) === 1;
+
     return `
-      <article class="c-card">
+      <article class="c-card ${isFeatured ? "c-card--featured" : ""}">
         <div class="c-card__header">
-          ${
-            logo
-              ? `<img src="${logo}" alt="Logo ${name}" class="c-card__logo">`
-              : `<div class="c-card__logo"></div>`
-          }
+          ${logo
+            ? `<img src="${logo}" alt="Logo ${name}" class="c-card__logo">`
+            : `<div class="c-card__logo"></div>`}
 
           <div class="c-card__info">
             <h2 class="c-card__title">${name}</h2>
-
             ${topRowHtml}
-
             ${hasLocation ? `<div class="c-card__meta">${locationText}</div>` : ""}
             <div class="c-card__meta">Doelgroep: ${clients}</div>
           </div>
@@ -95,4 +89,5 @@ export function renderCards(container, list) {
     `;
   }).join("");
 }
+
 

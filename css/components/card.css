@@ -30,6 +30,20 @@
     flex-wrap: nowrap;
   }
 }
+@media (min-width: 900px) {
+  .c-card--featured {
+    padding: 1.25rem 1.35rem;
+  }
+
+  .c-card--featured .c-card__header {
+    grid-template-columns: 80px 1fr;
+  }
+
+  .c-card--featured .c-card__logo {
+    width: 80px;
+    height: 80px;
+  }
+}
 
 
 .c-card__logo {
