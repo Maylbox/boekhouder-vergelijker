@@ -1,8 +1,3 @@
-export function onRequestGet({ request }) {
-  // /contact -> /contact.html
-  return Response.redirect(new URL("/contact.html", request.url), 302);
-}
-
 export async function onRequestPost({ request, env }) {
   try {
     const form = await request.formData();
