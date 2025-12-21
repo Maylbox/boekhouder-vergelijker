@@ -65,15 +65,24 @@ export function renderCards(container, list) {
 
     const summaryHtml = summary ? `<p class="c-card__summary">${summary}</p>` : "";
 
-    const moreInfoBtn = moreInfoLink
-      ? `<a class="c-btn c-btn--secondary" href="${moreInfoLink}" target="_blank" rel="noopener noreferrer">Meer info</a>`
-      : `<span></span>`;
+    const moreInfoBtn = outLink
+  ? `<a class="c-btn c-btn--secondary"
+       href="${outLink}?type=info"
+       target="_blank"
+       rel="noopener noreferrer nofollow sponsored">
+       Meer info
+     </a>`
+  : `<span></span>`;
 
-    // Track outbound clicks through /out/<slug>
-    // Use nofollow+sponsored (good for SEO + affiliate compliance)
-    const websiteBtn = outLink
-      ? `<a class="c-btn c-btn--primary" href="${outLink}" target="_blank" rel="noopener noreferrer nofollow sponsored">Naar website</a>`
-      : `<span></span>`;
+const websiteBtn = outLink
+  ? `<a class="c-btn c-btn--primary"
+       href="${outLink}?type=site"
+       target="_blank"
+       rel="noopener noreferrer nofollow sponsored">
+       Naar website
+     </a>`
+  : `<span></span>`;
+
 
     const actionsHtml = `
       <div class="c-card__actions">
