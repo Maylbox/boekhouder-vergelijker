@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Moneymonk",
+    "slug": "moneymonk",
     "monthlyFee": "7,50",
     "rating": 9.8,
     "clients": "ZZP",
@@ -15,6 +16,7 @@
   {
     "id": 2,
     "name": "Moneybird",
+    "slug": "moneybird",
     "monthlyFee": "14,-",
     "rating": 7.8,
     "clients": "Freelancers, Startende ondernemers",
@@ -29,6 +31,7 @@
   {
     "id": 3,
     "name": "e-Boekhouden.nl",
+    "slug": "e-boekhouden",
     "monthlyFee": "9,95",
     "rating": 9.2,
     "clients": "Freelancers, Startende ondernemers",
@@ -43,6 +46,7 @@
   {
     "id": 4,
     "name": "Yuki",
+    "slug": "yuki",
     "monthlyFee": "23,50",
     "rating": 7.6,
     "clients": "Accountants, Ondernemers",
@@ -57,6 +61,7 @@
   {
     "id": 5,
     "name": "Exact",
+    "slug": "exact",
     "monthlyFee": "50,50",
     "rating": 5.4,
     "clients": "Accountants, Maat Gemaakt",
@@ -70,6 +75,7 @@
   {
     "id": 6,
     "name": "Informer",
+    "slug": "informer",
     "monthlyFee": "23,-",
     "rating": 9.0,
     "clients": "Gemaakt voor iedere ondernemer",
@@ -84,6 +90,7 @@
   {
     "id": 7,
     "name": "Snelstart",
+    "slug": "snelstart",
     "monthlyFee": "20,50",
     "rating": 9.2,
     "clients": "ZZP, MKB",

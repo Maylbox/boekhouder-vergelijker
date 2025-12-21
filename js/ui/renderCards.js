@@ -7,6 +7,19 @@ function escapeHtml(str) {
     .replaceAll("'", "&#039;");
 }
 
+function toRatingNumber(value) {
+  if (value == null) return NaN;
+  return Number(String(value).replace(",", "."));
+}
+
+function buildLocation(city, country) {
+  const c = escapeHtml(city || "");
+  const co = escapeHtml(country || "");
+  if (!c && !co) return "";
+  if (c && co) return `${c}, ${co}`;
+  return c || co;
+}
+
 export function renderCards(container, list) {
   if (!container) return;
 
@@ -16,24 +29,22 @@ export function renderCards(container, list) {
     return ao - bo;
   });
 
-  container.innerHTML = items.map(acc => {
+  container.innerHTML = items.map((acc) => {
     const name = escapeHtml(acc.name || "");
     const logo = acc.logo ? escapeHtml(acc.logo) : "";
-    const city = escapeHtml(acc.city || "");
-    const country = escapeHtml(acc.country || "");
     const clients = escapeHtml(acc.clients || "n.v.t.");
-    const monthlyFee = acc.monthlyFee ? escapeHtml(acc.monthlyFee) : "";
     const summary = acc.summary ? escapeHtml(acc.summary) : "";
+
+    const monthlyFee = acc.monthlyFee ? escapeHtml(acc.monthlyFee) : "";
     const moreInfoLink = acc.moreInfoLink ? escapeHtml(acc.moreInfoLink) : "";
-    const websiteLink = acc.websiteLink ? escapeHtml(acc.websiteLink) : "";
 
-    const hasLocation = Boolean(acc.city || acc.country);
-    const locationText = `${city}${acc.city && acc.country ? ", " : ""}${country}`;
+    // NEW: slug-based tracking link
+    const slug = acc.slug ? String(acc.slug).trim().toLowerCase() : "";
+    const outLink = slug ? `/out/${encodeURIComponent(slug)}` : "";
 
-    const ratingNum = acc.rating != null
-      ? Number(String(acc.rating).replace(",", "."))
-      : NaN;
+    const locationText = buildLocation(acc.city, acc.country);
 
+    const ratingNum = toRatingNumber(acc.rating);
     const ratingHtml = Number.isFinite(ratingNum)
       ? `<span class="c-badge">★ ${ratingNum.toFixed(1)}</span>`
       : "";
@@ -54,14 +65,20 @@ export function renderCards(container, list) {
 
     const summaryHtml = summary ? `<p class="c-card__summary">${summary}</p>` : "";
 
+    const moreInfoBtn = moreInfoLink
+      ? `<a class="c-btn c-btn--secondary" href="${moreInfoLink}" target="_blank" rel="noopener noreferrer">Meer info</a>`
+      : `<span></span>`;
+
+    // Track outbound clicks through /out/<slug>
+    // Use nofollow+sponsored (good for SEO + affiliate compliance)
+    const websiteBtn = outLink
+      ? `<a class="c-btn c-btn--primary" href="${outLink}" target="_blank" rel="noopener noreferrer nofollow sponsored">Naar website</a>`
+      : `<span></span>`;
+
     const actionsHtml = `
       <div class="c-card__actions">
-        ${moreInfoLink
-          ? `<a class="c-btn c-btn--secondary" href="${moreInfoLink}" target="_blank" rel="noopener noreferrer">Meer info</a>`
-          : `<span></span>`}
-        ${websiteLink
-          ? `<a class="c-btn c-btn--primary" href="${websiteLink}" target="_blank" rel="noopener noreferrer">Naar website</a>`
-          : `<span></span>`}
+        ${moreInfoBtn}
+        ${websiteBtn}
       </div>
     `;
 
@@ -72,12 +89,12 @@ export function renderCards(container, list) {
         <div class="c-card__header">
           ${logo
             ? `<img src="${logo}" alt="Logo ${name}" class="c-card__logo">`
-            : `<div class="c-card__logo"></div>`}
+            : `<div class="c-card__logo" aria-hidden="true"></div>`}
 
           <div class="c-card__info">
             <h2 class="c-card__title">${name}</h2>
             ${topRowHtml}
-            ${hasLocation ? `<div class="c-card__meta">${locationText}</div>` : ""}
+            ${locationText ? `<div class="c-card__meta">${locationText}</div>` : ""}
             <div class="c-card__meta">Doelgroep: ${clients}</div>
           </div>
         </div>
@@ -89,5 +106,3 @@ export function renderCards(container, list) {
     `;
   }).join("");
 }
-
-
