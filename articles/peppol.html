@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+  <link rel="preload" as="image" href="/public/img/logo.png" type="image/png" fetchpriority="high">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -42,36 +44,14 @@
 
 <body>
 
-<header class="c-header">
-  <div class="o-container o-container--wide">
-    <div class="o-main">
-      <div class="c-header__row">
-        <a href="/index.html" class="c-brand">
-  <img src="/public/img/logo.png" alt="Boekhouder Vergelijken logo" class="c-brand__logo">
-  <div>
-    <h1>Boekhouder Vergelijken</h1>
-    <p class="c-brand__subtitle">
-      Vergelijk prijzen, reviews en diensten van boekhouders in Nederland en België
-    </p>
-  </div>
-</a>
+<header id="site-header" class="c-header"></header>
 
-
-        <nav class="c-nav" aria-label="Hoofdmenu">
-          <button class="c-nav__toggle" type="button" aria-label="Open menu" aria-expanded="false">
-            <img class="c-nav__icon" src="/public/img/hamburger.svg" alt="" aria-hidden="true">
-          </button>
-
-          <div class="c-nav__menu">
-            <a class="c-nav__link" href="/index.html">Boekhoudprogramma's</a>
-            <a class="c-nav__link" href="/articles.html">Artikelen</a>
-            <a class="c-nav__link" href="/contact.html">Contact</a>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </div>
-</header>
+<script>
+  try {
+    const cached = sessionStorage.getItem("bv_header_v1");
+    if (cached) document.getElementById("site-header").innerHTML = cached;
+  } catch {}
+</script>
 
 <main class="o-container o-container--wide">
   <div class="o-main">

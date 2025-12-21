@@ -11,6 +11,29 @@ function setYear() {
   if (y) y.textContent = String(new Date().getFullYear());
 }
 
+async function injectHeader() {
+  const mount = document.getElementById("site-header");
+  if (!mount) return false;
+
+  const key = "bv_header_v1";
+
+  if (!sessionStorage.getItem(key) && mount.innerHTML.trim()) {
+    sessionStorage.setItem(key, mount.innerHTML);
+  }
+
+  if (mount.innerHTML.trim()) return true;
+
+  const res = await fetch("/partials/header.html?v=1"); 
+  if (!res.ok) return false;
+
+  const html = await res.text();
+  sessionStorage.setItem(key, html);
+  mount.innerHTML = html;
+
+  return true;
+}
+
+
 async function initIndexPage() {
   const resultsEl = document.getElementById("results");
   if (!resultsEl) return;
@@ -29,13 +52,16 @@ async function initArticlesPage() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  initNavMenu();
   setYear();
 
   try {
+    const injected = await injectHeader();
+    if (injected) initNavMenu(); // only init if header exists
+
     await initIndexPage();
     await initArticlesPage();
   } catch (err) {
     console.error(err);
   }
 });
+
