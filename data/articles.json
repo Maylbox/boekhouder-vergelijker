@@ -5,7 +5,8 @@
   "description": "Wat is Peppol, hoe werkt e-facturatie via Peppol, en voor wie is het interessant?",
   "thumbnail": "public/articles/peppol.jpg",
   "date": "2025-08-23",
-  "content": "articles/peppol.html"
+  "content": "articles/peppol.html",
+  "category": "Btw & belasting"
  },
   {
     "id": "beste-online-boekhoudsoftware-zzp-2025",
@@ -13,7 +14,8 @@
     "description": "Een overzicht van populaire pakketten, met voor- en nadelen per type ondernemer.",
     "thumbnail": "public/articles/stock1.png",
     "date": "2025-01-15",
-    "content": "articles/beste-online-boekhoudsoftware-zzp-2025.html"
+    "content": "articles/beste-online-boekhoudsoftware-zzp-2025.html",
+    "category": "Boekhouden"
   },
   {
     "id": "boekhouder-vs-zelf-boekhouden",
@@ -21,7 +23,8 @@
     "description": "Wanneer is een externe boekhouder slim en wanneer kun je beter voor software kiezen?",
     "thumbnail": "public/articles/stock2.jpg",
     "date": "2025-01-10",
-    "content": "articles/boekhouder-vs-zelf-boekhouden.html"
+    "content": "articles/boekhouder-vs-zelf-boekhouden.html",
+    "category": "Boekhouden"
   },
   {
     "id": "boekhouder-te-duur-boekhouden-kan-je-zelf-met-een-boekhoudprogramma",
@@ -29,6 +32,7 @@
     "description": "Waarom zijn boekhouders zo duur? Ontdek waarom een online boekhoudprogramma vaak goedkoper, slimmer en efficiënter is voor zzp’ers en mkb.",
     "thumbnail": "public/articles/stock3.webp",
     "date": "2025-12-22",
-    "content": "articles/boekhouder-te-duur-boekhouden-kan-je-zelf-met-een-boekhoudprogramma.html"
+    "content": "articles/boekhouder-te-duur-boekhouden-kan-je-zelf-met-een-boekhoudprogramma.html",
+    "category": "Boekhouden"
   }
 ]
