@@ -100,10 +100,20 @@
       color: var(--color-muted, #666);
     }
 
-    @media (max-width: 520px) {
-      .dash-controls { width: 100%; }
-      .dash-kpis { grid-template-columns: 1fr; }
-    }
+    #custom-range input[type="date"]{
+  min-width: 140px;
+}
+
+@media (max-width: 520px) {
+  #custom-range {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  #custom-range input[type="date"]{
+    flex: 1 1 160px;
+  }
+}
+
   </style>
 </head>
 
@@ -153,11 +163,22 @@
 
         <div class="dash-controls" role="group" aria-label="Filters">
           <label>Periode</label>
-          <select id="range">
-            <option value="7">Laatste 7 dagen</option>
-            <option value="30" selected>Laatste 30 dagen</option>
-            <option value="90">Laatste 90 dagen</option>
-          </select>
+<select id="range">
+  <option value="hours:24">Laatste 24 uur</option>
+  <option value="days:7">Laatste 7 dagen</option>
+  <option value="days:30" selected>Laatste 30 dagen</option>
+  <option value="days:90">Laatste 90 dagen</option>
+  <option value="all">All</option>
+  <option value="custom">Custom…</option>
+</select>
+
+<div id="custom-range" style="display:none; gap:.5rem; align-items:center;">
+  <label class="muted" style="margin:0;">Van</label>
+  <input id="from" type="date" />
+  <label class="muted" style="margin:0;">Tot</label>
+  <input id="to" type="date" />
+</div>
+
 
           <label>Type</label>
           <select id="type">
@@ -202,52 +223,61 @@
       </div>
 
       <div class="dash-grid" style="margin-top:1rem;">
-        <section class="dash-card">
-          <h2>Clicks per dag</h2>
-          <div class="muted" style="margin:-.25rem 0 .6rem;">Datum (zonder jaar) + totaal</div>
-          <div style="overflow:auto;">
-            <table class="table" id="tbl-days">
-              <thead>
-                <tr><th>Dag</th><th class="right">Clicks</th></tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </section>
 
-        <section class="dash-card">
-          <h2>Clicks per accountant</h2>
-          <div class="muted" style="margin:-.25rem 0 .6rem;">Slug + totaal</div>
-          <div style="overflow:auto;">
-            <table class="table" id="tbl-slugs">
-              <thead>
-                <tr><th>Slug</th><th class="right">Clicks</th></tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </section>
+  <section class="dash-card span-2">
+    <h2>Clicks trend</h2>
+    <div class="muted" id="chart-sub" style="margin:-.25rem 0 .6rem;">—</div>
+    <div id="chart" style="width:100%; overflow:hidden;"></div>
+  </section>
 
-        <section class="dash-card span-2">
-          <h2>Recente clicks</h2>
-          <div class="muted" style="margin:-.25rem 0 .6rem;">Dag + tijd, slug, type, category, land</div>
-          <div style="overflow:auto;">
-            <table class="table" id="tbl-recent">
-              <thead>
-                <tr>
-                  <th>Dag</th>
-                  <th>Tijd</th>
-                  <th>Slug</th>
-                  <th>Type</th>
-                  <th>Cat</th>
-                  <th>Land</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </section>
-      </div>
+  <section class="dash-card">
+    <h2>Clicks per dag</h2>
+    <div class="muted" style="margin:-.25rem 0 .6rem;">Datum (zonder jaar) + totaal</div>
+    <div style="overflow:auto;">
+      <table class="table" id="tbl-days">
+        <thead>
+          <tr><th>Dag</th><th class="right">Clicks</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="dash-card">
+    <h2>Clicks per accountant</h2>
+    <div class="muted" style="margin:-.25rem 0 .6rem;">Slug + totaal</div>
+    <div style="overflow:auto;">
+      <table class="table" id="tbl-slugs">
+        <thead>
+          <tr><th>Slug</th><th class="right">Clicks</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="dash-card span-2">
+    <h2>Recente clicks</h2>
+    <div class="muted" style="margin:-.25rem 0 .6rem;">Dag + tijd, slug, type, category, land</div>
+    <div style="overflow:auto;">
+      <table class="table" id="tbl-recent">
+        <thead>
+          <tr>
+            <th>Dag</th>
+            <th>Tijd</th>
+            <th>Slug</th>
+            <th>Type</th>
+            <th>Cat</th>
+            <th>Land</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
 
     </div>
   </main>
@@ -295,71 +325,163 @@
       return d.toLocaleTimeString("nl-NL", { hour: "2-digit", minute: "2-digit" });
     }
 
-    async function load() {
-      els.status.textContent = "Laden…";
+    const customWrap = document.getElementById("custom-range");
+const fromEl = document.getElementById("from");
+const toEl = document.getElementById("to");
+const chartEl = document.getElementById("chart");
+const chartSub = document.getElementById("chart-sub");
 
-      const days = Number(els.range.value || 30);
-      const type = els.type.value || "all";
-      const cat = els.cat.value || "all";
+function parseRangeValue(v) {
+  const s = String(v || "");
+  if (s === "all") return { range: "all" };
+  if (s === "custom") return { range: "custom" };
 
-      const qs = new URLSearchParams({
-        days: String(days),
-        type,
-        cat
-      });
+  // "days:30" / "hours:24"
+  const [kind, num] = s.split(":");
+  const n = Number(num);
+  if (kind === "hours" && Number.isFinite(n)) return { range: "hours", hours: n };
+  if (kind === "days" && Number.isFinite(n)) return { range: "days", days: n };
+  return { range: "days", days: 30 };
+}
 
-      const url = `/admin/dashboard/data?${qs.toString()}`;
+function syncCustomVisibility() {
+  const r = parseRangeValue(els.range.value);
+  if (r.range === "custom") {
+    customWrap.style.display = "flex";
+  } else {
+    customWrap.style.display = "none";
+  }
+}
 
-      try {
-        const res = await fetch(url, { headers: { "accept": "application/json" } });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
+function renderBarChart(series, unit) {
+  const data = Array.isArray(series) ? series : [];
+  const max = Math.max(1, ...data.map(d => Number(d.clicks || 0)));
 
-        // KPIs
-        els.kpiTotal.textContent = String(data?.kpis?.total_clicks ?? 0);
-        els.kpiSlugs.textContent = String(data?.kpis?.unique_slugs ?? 0);
-        els.kpiLast.textContent = data?.kpis?.last_ts ? `${fmtDayNoYear(data.kpis.last_ts)} ${fmtTime(data.kpis.last_ts)}` : "—";
+  // responsive SVG
+  const W = 900;
+  const H = 220;
+  const pad = 24;
+  const barGap = 6;
 
-        // Days table
-        els.tblDays.innerHTML = (data.days || []).map(r => `
-          <tr>
-            <td>${esc(r.day)}</td>
-            <td class="right">${esc(r.clicks)}</td>
-          </tr>
-        `).join("") || `<tr><td colspan="2" class="muted">Geen data</td></tr>`;
+  const innerW = W - pad * 2;
+  const innerH = H - pad * 2;
 
-        // Slugs table
-        els.tblSlugs.innerHTML = (data.slugs || []).map(r => `
-          <tr>
-            <td>${esc(r.slug)}</td>
-            <td class="right">${esc(r.clicks)}</td>
-          </tr>
-        `).join("") || `<tr><td colspan="2" class="muted">Geen data</td></tr>`;
+  const count = Math.max(1, data.length);
+  const barW = Math.max(6, (innerW - (count - 1) * barGap) / count);
 
-        // Recent table
-        els.tblRecent.innerHTML = (data.recent || []).map(r => `
-          <tr>
-            <td>${esc(fmtDayNoYear(r.ts))}</td>
-            <td>${esc(fmtTime(r.ts))}</td>
-            <td>${esc(r.slug)}</td>
-            <td>${esc(r.type)}</td>
-            <td>${esc(r.category)}</td>
-            <td>${esc(r.country || "")}</td>
-          </tr>
-        `).join("") || `<tr><td colspan="6" class="muted">Geen data</td></tr>`;
+  const bars = data.map((d, i) => {
+    const val = Number(d.clicks || 0);
+    const h = Math.round((val / max) * innerH);
+    const x = pad + i * (barW + barGap);
+    const y = pad + (innerH - h);
+    const label = esc(d.label);
+    return `
+      <g>
+        <rect x="${x}" y="${y}" width="${barW}" height="${h}" rx="6" ry="6"
+              fill="rgba(11,94,215,.45)"></rect>
+        <title>${label}: ${val}</title>
+      </g>
+    `;
+  }).join("");
 
-        els.status.textContent = `OK • ${days} dagen • type=${type} • cat=${cat}`;
-      } catch (e) {
-        els.status.textContent = `Fout bij laden: ${e?.message || e}`;
-      }
-    }
+  // x-labels (sparse)
+  const every = data.length <= 12 ? 1 : data.length <= 24 ? 2 : 4;
+  const labels = data.map((d, i) => {
+    if (i % every !== 0) return "";
+    const x = pad + i * (barW + barGap) + barW / 2;
+    const y = H - 6;
+    return `<text x="${x}" y="${y}" text-anchor="middle" font-size="11" fill="rgba(0,0,0,.55)">${esc(d.label)}</text>`;
+  }).join("");
 
-    els.refresh.addEventListener("click", load);
-    els.range.addEventListener("change", load);
-    els.type.addEventListener("change", load);
-    els.cat.addEventListener("change", load);
+  chartEl.innerHTML = `
+    <svg viewBox="0 0 ${W} ${H}" width="100%" height="220" role="img" aria-label="Clicks trend">
+      ${bars}
+      ${labels}
+    </svg>
+  `;
 
-    load();
+  chartSub.textContent = unit === "hour" ? "Per uur" : "Per dag";
+}
+
+async function load() {
+  els.status.textContent = "Laden…";
+
+  const r = parseRangeValue(els.range.value);
+  const type = els.type.value || "all";
+  const cat = els.cat.value || "all";
+
+  const qs = new URLSearchParams({ type, cat });
+
+  if (r.range === "all") {
+    qs.set("range", "all");
+  } else if (r.range === "hours") {
+    qs.set("range", "hours");
+    qs.set("hours", String(r.hours || 24));
+  } else if (r.range === "custom") {
+    qs.set("range", "custom");
+    if (fromEl.value) qs.set("from", fromEl.value);
+    if (toEl.value) qs.set("to", toEl.value);
+  } else {
+    qs.set("range", "days");
+    qs.set("days", String(r.days || 30));
+  }
+
+  const url = `/admin/dashboard/data?${qs.toString()}`;
+
+  try {
+    const res = await fetch(url, { headers: { "accept": "application/json" } });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    // KPIs
+    els.kpiTotal.textContent = String(data?.kpis?.total_clicks ?? 0);
+    els.kpiSlugs.textContent = String(data?.kpis?.unique_slugs ?? 0);
+    els.kpiLast.textContent = data?.kpis?.last_ts ? `${fmtDayNoYear(data.kpis.last_ts)} ${fmtTime(data.kpis.last_ts)}` : "—";
+
+    // Chart
+    renderBarChart(data?.chart?.series || [], data?.chart?.unit || "day");
+
+    // Tables
+    els.tblDays.innerHTML = (data.days || []).map(r => `
+      <tr>
+        <td>${esc(r.day)}</td>
+        <td class="right">${esc(r.clicks)}</td>
+      </tr>
+    `).join("") || `<tr><td colspan="2" class="muted">Geen data</td></tr>`;
+
+    els.tblSlugs.innerHTML = (data.slugs || []).map(r => `
+      <tr>
+        <td>${esc(r.slug)}</td>
+        <td class="right">${esc(r.clicks)}</td>
+      </tr>
+    `).join("") || `<tr><td colspan="2" class="muted">Geen data</td></tr>`;
+
+    els.tblRecent.innerHTML = (data.recent || []).map(r => `
+      <tr>
+        <td>${esc(fmtDayNoYear(r.ts))}</td>
+        <td>${esc(fmtTime(r.ts))}</td>
+        <td>${esc(r.slug)}</td>
+        <td>${esc(r.type)}</td>
+        <td>${esc(r.category)}</td>
+        <td>${esc(r.country || "")}</td>
+      </tr>
+    `).join("") || `<tr><td colspan="6" class="muted">Geen data</td></tr>`;
+
+    els.status.textContent = `OK • ${new Date().toLocaleTimeString("nl-NL", {hour:"2-digit", minute:"2-digit"})}`;
+  } catch (e) {
+    els.status.textContent = `Fout bij laden: ${e?.message || e}`;
+  }
+}
+
+els.refresh.addEventListener("click", load);
+els.range.addEventListener("change", () => { syncCustomVisibility(); load(); });
+els.type.addEventListener("change", load);
+els.cat.addEventListener("change", load);
+fromEl?.addEventListener("change", load);
+toEl?.addEventListener("change", load);
+
+syncCustomVisibility();
+load();
   </script>
 </body>
 </html>
