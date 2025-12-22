@@ -23,9 +23,7 @@ function formatDate(dateStr) {
 export function renderArticles(container, articles) {
   if (!container) return;
 
-  const list = [...(articles || [])].sort((a, b) => {
-    return (b.date || "").localeCompare(a.date || "");
-  });
+  const list = [...(articles || [])].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
   container.innerHTML = list.map(a => `
     <article class="c-article-card">
@@ -34,8 +32,12 @@ export function renderArticles(container, articles) {
         <div class="c-article-card__date">${escapeHtml(formatDate(a.date))}</div>
         <h3 class="c-article-card__title">${escapeHtml(a.title)}</h3>
         <p class="c-article-card__desc">${escapeHtml(a.description)}</p>
-        <a class="c-btn c-btn--secondary" href="${escapeHtml(a.content)}">Lees artikel</a>
+
+        <div class="c-article-card__actions">
+          <a class="c-btn c-btn--secondary" href="${escapeHtml(a.content)}">Lees artikel</a>
+        </div>
       </div>
     </article>
   `).join("");
 }
+
