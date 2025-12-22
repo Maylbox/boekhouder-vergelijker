@@ -23,7 +23,7 @@ export async function onRequestGet({ request, env }) {
   const whereSql = `WHERE ${where.join(" AND ")}`;
 
   // KPI: total clicks, unique slugs, last ts
-  const kpiRow = await env.bv_clicks.prepare(
+  const kpiRow = await env.DB.prepare(
     `
     SELECT
       COUNT(*) AS total_clicks,
@@ -37,7 +37,7 @@ export async function onRequestGet({ request, env }) {
   // Clicks per day (store day as dd-mm without year)
   // We'll compute day label in SQL using unix epoch ms -> seconds.
   // NOTE: ts is ms; datetime() expects seconds.
-  const daysRes = await env.bv_clicks.prepare(
+  const daysRes = await env.DB.prepare(
     `
     SELECT
       strftime('%d-%m', datetime(ts/1000, 'unixepoch')) AS day,
@@ -51,7 +51,7 @@ export async function onRequestGet({ request, env }) {
   ).bind(...bind).all();
 
   // Clicks per slug
-  const slugsRes = await env.bv_clicks.prepare(
+  const slugsRes = await env.DB.prepare(
     `
     SELECT slug, COUNT(*) AS clicks
     FROM clicks
@@ -63,7 +63,7 @@ export async function onRequestGet({ request, env }) {
   ).bind(...bind).all();
 
   // Recent clicks
-  const recentRes = await env.bv_clicks.prepare(
+  const recentRes = await env.DB.prepare(
     `
     SELECT ts, slug, type, category, country
     FROM clicks
