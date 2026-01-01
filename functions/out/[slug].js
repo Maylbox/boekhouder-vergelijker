@@ -6,32 +6,52 @@ export async function onRequestGet({ params, request, env }) {
   const type = (url.searchParams.get("type") || "site").toLowerCase(); // "site" | "info"
   const category = safeCategory(url.searchParams.get("cat"));
 
-  // 1) If BE domain: forward to NL handler (preserve query)
+  // 1) If BE domain: forward to NL handler, and mark market=be (preserve query)
   if (host === "boekhouder-vergelijken.be" || host.endsWith(".be")) {
     const target = new URL(`https://boekhouder-vergelijken.nl/out/${encodeURIComponent(slug)}`);
-    target.search = url.search; // keep ?type=...&cat=... etc
+
+    // copy all query params
+    target.search = url.search;
+
+    // ensure market is set for NL handler
+    target.searchParams.set("m", "be");
+
     return Response.redirect(target.toString(), 302);
   }
 
   // 2) Otherwise (NL): handle normally
+  const market = (url.searchParams.get("m") || "nl").toLowerCase(); // "nl" | "be"
+
   const DEST = {
     moneymonk: { site: "https://www.moneymonk.nl/", info: "https://www.moneymonk.nl/" },
     moneybird: { site: "https://www.moneybird.nl/", info: "https://www.moneybird.nl/" },
-    "e-boekhouden": { site: "https://www.e-boekhouden.nl/", info: "https://www.e-boekhouden.nl/" },
+
+    "e-boekhouden": {
+      nl: { site: "https://www.e-boekhouden.nl/", info: "https://www.e-boekhouden.nl/" },
+      be: { site: "https://www.e-boekhouden.be/", info: "https://www.e-boekhouden.be/" }
+    },
+
     yuki: { site: "https://www.yukisoftware.com/", info: "https://www.yukisoftware.com/" },
     exact: { site: "https://www.exact.com/nl", info: "https://www.exact.com/nl" },
     informer: { site: "https://www.informer.nl/", info: "https://www.informer.nl/" },
     snelstart: { site: "https://www.snelstart.nl/", info: "https://www.snelstart.nl/" },
 
-    // add BE slugs here too since NL is the central handler now
+    // BE slugs handled centrally on NL
     accountable: { site: "https://www.accountable.eu/r/?ref=mwixntc", info: "https://www.accountable.eu/r/?ref=mwixntc" },
     dexxter: { site: "https://www.dexxter.be/", info: "https://www.dexxter.be/" }
   };
 
-  const dest = DEST[slug]?.[type] || DEST[slug]?.site;
+  const entry = DEST[slug];
+
+  const dest =
+    entry?.[market]?.[type] ||
+    entry?.[market]?.site ||
+    entry?.[type] || // fallback for single-market entries
+    entry?.site;
+
   if (!dest) return new Response("Unknown link", { status: 404 });
 
-  // optional: only log if DB exists (prevents crashes on preview envs)
+  // log click (only if DB exists)
   if (env?.DB) {
     const ts = Date.now();
     const id = crypto.randomUUID();
