@@ -6,6 +6,7 @@ import { renderAds } from "./ui/renderAds.js";
 import { renderCards } from "./ui/renderCards.js";
 import { renderArticles } from "./ui/renderArticles.js";
 
+
 function setYear() {
   const y = document.getElementById("year");
   if (y) y.textContent = String(new Date().getFullYear());
@@ -33,12 +34,24 @@ async function injectHeader() {
   return true;
 }
 
+function getMarket() {
+  const host = window.location.hostname.toLowerCase();
+  // works for boekhouder-vergelijken.be and any subdomain like www.
+  if (host === "boekhouder-vergelijken.be" || host.endsWith(".be")) return "be";
+  return "nl";
+}
+
+function getAccountantsPath() {
+  return getMarket() === "be"
+    ? "/data/accountants-be.json"
+    : "/data/accountants-nl.json";
+}
 
 async function initIndexPage() {
   const resultsEl = document.getElementById("results");
   if (!resultsEl) return;
 
-  store.accountants = await fetchJSON("./data/accountants.json");
+  store.accountants = await fetchJSON(getAccountantsPath());
   renderCards(resultsEl, store.accountants);
 }
 
