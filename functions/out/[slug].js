@@ -38,7 +38,7 @@ export async function onRequestGet({ params, request, env }) {
 
     // BE slugs handled centrally on NL
     accountable: { site: "https://www.accountable.eu/r/?ref=mwixntc", info: "https://www.accountable.eu/r/?ref=mwixntc" },
-    dexxter: { site: "https://www.dexxter.be/", info: "https://www.dexxter.be/" }
+    dexxter: { site: "https://dexxter.cello.so/rxGpcjs3LCN", info: "https://dexxter.cello.so/rxGpcjs3LCN" }
   };
 
   const entry = DEST[slug];
