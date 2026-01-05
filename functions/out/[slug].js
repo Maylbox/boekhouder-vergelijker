@@ -27,7 +27,7 @@ export async function onRequestGet({ params, request, env }) {
     moneybird: { site: "https://www.moneybird.nl/", info: "https://www.moneybird.nl/" },
 
     "e-boekhouden": {
-      nl: { site: "https://www.e-boekhouden.nl/", info: "https://www.e-boekhouden.nl/" },
+      nl: { site: "https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994", info: "https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994" },
       be: { site: "https://www.e-boekhouden.be/", info: "https://www.e-boekhouden.be/" }
     },
 
