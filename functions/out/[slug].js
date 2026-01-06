@@ -24,7 +24,7 @@ export async function onRequestGet({ params, request, env }) {
 
   const DEST = {
     moneymonk: { site: "https://www.moneymonk.nl/", info: "https://www.moneymonk.nl/" },
-    moneybird: { site: "https://www.moneybird.nl/", info: "https://www.moneybird.nl/" },
+    moneybird: { site: "https://bdt9.net/c/?si=19080&li=1819984&wi=415660&ws=&dl=aanmelden%2F", info: "https://bdt9.net/c/?si=19080&li=1819984&wi=415660&ws=&dl=aanmelden%2F" },
 
     "e-boekhouden": {
       nl: { site: "https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994", info: "https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994" },
