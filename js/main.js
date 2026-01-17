@@ -14,37 +14,40 @@ const MARKET_CONFIG = {
   nl: {
     domain: "boekhouder-vergelijken.nl",
     lang: "nl",
+    footerText: "boekhouder-vergelijken.nl",
+
+    // index
     title: "Boekhouder Vergelijken – Vergelijk boekhouders & boekhoudsoftware",
     description:
       "Vergelijk boekhouders en boekhoudsoftware op prijs, doelgroep en beoordeling. Vind snel wat bij jouw onderneming past.",
     ogImage: "https://boekhouder-vergelijken.nl/public/img/og-default.jpg",
-    footerText: "boekhouder-vergelijken.nl",
-    accountantsPath: "/data/accountants-nl.json",
 
-    // NEW:
-    articlesPath: "/data/articles-nl.json",
+    // pages
     articlesPage: "/articles.html",
+    articlesTitle: "Artikelen over Boekhouden – Boekhouder Vergelijken",
+    articlesDescription:
+      "Praktische artikelen over boekhouden, online boekhoudsoftware en het kiezen van de juiste boekhouder voor ZZP'ers en mkb.",
   },
+
   be: {
     domain: "boekhouder-vergelijken.be",
     lang: "nl",
+    footerText: "boekhouder-vergelijken.be",
+
     title: "Boekhouder Vergelijken België – Vergelijk boekhouders & boekhoudsoftware",
     description:
       "Vergelijk boekhouders en boekhoudsoftware in België op prijs, doelgroep en beoordeling.",
     ogImage: "https://boekhouder-vergelijken.be/public/img/og-default.jpg",
-    footerText: "boekhouder-vergelijken.be",
-    accountantsPath: "/data/accountants-be.json",
 
-    // NEW:
-    articlesPath: "/data/articles-be.json",
     articlesPage: "/artikelen.html",
+    articlesTitle: "Artikelen over Boekhouden in België – Boekhouder Vergelijken",
+    articlesDescription:
+      "Praktische artikelen voor zelfstandigen en KMO's in België over boekhouden, btw, e-facturatie en Peppol.",
   },
 };
 
-
 function getMarket() {
   const host = window.location.hostname.toLowerCase();
-  // boekhouder-vergelijken.be en subdomeinen (www.)
   if (host === "boekhouder-vergelijken.be" || host.endsWith(".be")) return "be";
   return "nl";
 }
@@ -53,68 +56,84 @@ function getCfg() {
   return MARKET_CONFIG[getMarket()] ?? MARKET_CONFIG.nl;
 }
 
-function setYearAndFooter() {
-  const year = String(new Date().getFullYear());
-
-  const y = document.getElementById("year");
-  if (y) y.textContent = year;
-
-  // optioneel: pas footer tekst aan naar enkel het juiste domein
-  const cfg = getCfg();
-  const footerP = document.querySelector(".c-footer p");
-  if (footerP) footerP.textContent = `© ${year} ${cfg.footerText}`;
-}
-
-/**
- * Update meta/canonical/og/twitter voor de juiste market.
- * Let op: crawlers kunnen soms minder houden van client-side meta changes,
- * maar dit is praktisch en werkt prima voor socials/clients.
- */
 function isArticlesPage() {
   const p = (window.location.pathname || "/").toLowerCase();
   return p.endsWith("/articles.html") || p.endsWith("/artikelen.html");
 }
 
+function ensureMeta(name, attr = "name") {
+  let el = document.querySelector(`meta[${attr}="${name}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, name);
+    document.head.appendChild(el);
+  }
+  return el;
+}
+
+function ensureLink(rel) {
+  let el = document.querySelector(`link[rel="${rel}"]`);
+  if (!el) {
+    el = document.createElement("link");
+    el.setAttribute("rel", rel);
+    document.head.appendChild(el);
+  }
+  return el;
+}
+
+function setMetaContent(selectorOrEl, value) {
+  const el =
+    typeof selectorOrEl === "string"
+      ? document.querySelector(selectorOrEl)
+      : selectorOrEl;
+  if (el) el.setAttribute("content", value);
+}
+
 function applyMarketMeta() {
   const cfg = getCfg();
-
-  document.documentElement.lang = cfg.lang || "nl";
-
-  // page-specific meta
   const onArticles = isArticlesPage();
 
-  const pageTitle = onArticles
-    ? (cfg.articlesTitle ?? "Artikelen over Boekhouden – Boekhouder Vergelijken")
-    : cfg.title;
-
-  const pageDesc = onArticles
-    ? (cfg.articlesDescription ??
-       "Praktische artikelen over boekhouden, online boekhoudsoftware en het kiezen van de juiste boekhouder.")
-    : cfg.description;
-
+  const pageTitle = onArticles ? cfg.articlesTitle : cfg.title;
+  const pageDesc = onArticles ? cfg.articlesDescription : cfg.description;
   const pagePath = onArticles ? cfg.articlesPage : "/";
 
+  const pageUrl = `https://${cfg.domain}${pagePath}`;
+
+  // html lang + title
+  document.documentElement.lang = cfg.lang || "nl";
   document.title = pageTitle;
 
-  const setAttr = (sel, attr, value) => {
-    const el = document.querySelector(sel);
-    if (el) el.setAttribute(attr, value);
-  };
+  // description + canonical
+  setMetaContent(ensureMeta("description"), pageDesc);
+  ensureLink("canonical").setAttribute("href", pageUrl);
 
-  setAttr('meta[name="description"]', "content", pageDesc);
-  setAttr('link[rel="canonical"]', "href", `https://${cfg.domain}${pagePath}`);
+  // robots (laat bestaan als je 'm al hebt)
+  if (!document.querySelector('meta[name="robots"]')) {
+    setMetaContent(ensureMeta("robots"), "index,follow");
+  }
 
-  setAttr('meta[property="og:site_name"]', "content", "Boekhouder Vergelijken");
-  setAttr('meta[property="og:title"]', "content", pageTitle);
-  setAttr('meta[property="og:description"]', "content", pageDesc);
-  setAttr('meta[property="og:url"]', "content", `https://${cfg.domain}${pagePath}`);
-  setAttr('meta[property="og:image"]', "content", cfg.ogImage);
+  // Open Graph
+  setMetaContent(ensureMeta("og:site_name", "property"), "Boekhouder Vergelijken");
+  setMetaContent(ensureMeta("og:type", "property"), "website");
 
-  setAttr('meta[name="twitter:card"]', "content", "summary_large_image");
-  setAttr('meta[name="twitter:title"]', "content", pageTitle);
-  setAttr('meta[name="twitter:description"]', "content", pageDesc);
-  setAttr('meta[name="twitter:image"]', "content", cfg.ogImage);
+  // locale (optioneel; NL vs BE)
+  setMetaContent(
+    ensureMeta("og:locale", "property"),
+    getMarket() === "be" ? "nl_BE" : "nl_NL"
+  );
+
+  setMetaContent(ensureMeta("og:title", "property"), pageTitle);
+  setMetaContent(ensureMeta("og:description", "property"), pageDesc);
+  setMetaContent(ensureMeta("og:url", "property"), pageUrl);
+  setMetaContent(ensureMeta("og:image", "property"), cfg.ogImage);
+
+  // Twitter
+  setMetaContent(ensureMeta("twitter:card"), "summary_large_image");
+  setMetaContent(ensureMeta("twitter:title"), pageTitle);
+  setMetaContent(ensureMeta("twitter:description"), pageDesc);
+  setMetaContent(ensureMeta("twitter:image"), cfg.ogImage);
 }
+
 
 
 async function injectHeader() {
