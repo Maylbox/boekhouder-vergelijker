@@ -37,7 +37,7 @@ export async function onRequestGet({ params, request, env }) {
     snelstart: { site: "https://www.snelstart.nl/", info: "https://www.snelstart.nl/" },
 
     // BE slugs handled centrally on NL
-    accountable: { site: "https://www.accountable.eu/r/?ref=mwixntc", info: "https://www.accountable.eu/r/?ref=mwixntc" },
+    accountable: { site: "https://www.awin1.com/cread.php?awinmid=118873&awinaffid=2717422&ued=https%3A%2F%2Fwww.accountable.eu%2Fnl-be%2F", info: "https://www.awin1.com/cread.php?awinmid=118873&awinaffid=2717422&ued=https%3A%2F%2Fwww.accountable.eu%2Fnl-be%2F" },
     dexxter: { site: "https://dexxter.cello.so/rxGpcjs3LCN", info: "https://dexxter.cello.so/rxGpcjs3LCN" }
   };
 
