@@ -30,6 +30,17 @@ export async function onRequestGet({ params, request, env }) {
       nl: { site: "https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994", info: "https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994" },
       be: { site: "https://www.e-boekhouden.be/boekhoudprogramma?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994", info: "https://www.e-boekhouden.be/boekhoudprogramma?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994" }
     },
+    silvasoft: {
+  nl: {
+    site: "https://www.silvasoft.nl/?src-rf=1_gvergel",
+    info: "https://www.silvasoft.nl/?src-rf=1_gvergel"
+  },
+  be: {
+    site: "https://www.silvasoft.be/?src-rf=1_gvergbe",
+    info: "https://www.silvasoft.be/?src-rf=1_gvergbe"
+  }
+},
+
 
     yuki: { site: "https://www.yukisoftware.com/", info: "https://www.yukisoftware.com/" },
     exact: { site: "https://www.exact.com/nl", info: "https://www.exact.com/nl" },

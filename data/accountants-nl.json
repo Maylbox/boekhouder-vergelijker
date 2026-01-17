@@ -11,7 +11,8 @@
     "websiteLink": "https://www.moneymonk.nl/",
     "logo": "public/img/moneymonk.svg",
     "summary": "MoneyMonk is een eenvoudig en overzichtelijk online boekhoudpakket voor ZZP’ers en kleine ondernemers, gericht op snel en efficiënt boekhouden.",
-    "sponsoredOrder": 2
+    "sponsoredOrder": 3
+
   },
   {
     "id": 2,
@@ -25,7 +26,22 @@
     "websiteLink": "https://bdt9.net/c/?si=19080&li=1819984&wi=415660&ws=&dl=aanmelden%2F",
     "logo": "https://s3-eu-west-1.amazonaws.com/tpd/logos/4bf1761d00006400050c8f52/0x0.png",
     "summary": "Moneybird is een eenvoudig, online boekhoudpakket dat is ontworpen om ondernemers te helpen met hun boekhouding, met een focus op een gebruiksvriendelijke en automatische aanpak.",
-    "sponsoredOrder": 3
+    "sponsoredOrder": 4
+  }
+  ,
+     {
+    "id": 8,
+    "name": "Silvasoft",
+    "slug": "silvasoft",
+    "monthlyFee": "13,95",
+    "rating": 7.6,
+    "clients": "Iedereen",
+    "features": ["Peppol Ready", "Dagboeken", "Flexibel"],
+    "moreInfoLink": "https://www.silvasoft.nl/?src-rf=1_gvergel",
+    "websiteLink": "https://www.silvasoft.nl/?src-rf=1_gvergel",
+    "logo": "public/img/silva.svg",
+    "summary": "Silvasoft is een online boekhoudpakket voor ondernemers en accountants, met functies voor boekhouding, facturatie, btw en rapportages.",
+    "sponsoredOrder": 2
   }
   ,
   {
@@ -40,6 +56,10 @@
     "websiteLink": "https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994",
     "logo": "https://play-lh.googleusercontent.com/BczA4hPSBxn4_j2inFsCWQ8W1bMtWqCgAfBn-MAfU8PlJ6yECcsdSQk_bvVm0kXrBg",
     "summary": "e-Boekhouden.nl is een populair en gebruiksvriendelijk online boekhoudpakket voor ZZP’ers en kleine ondernemers. Het biedt alle basisfunctionaliteiten voor facturatie, administratie en btw-aangifte, en is geschikt voor zowel starters als ervaren ondernemers.",
+    "badge": {
+    "text": "15 Maanden Gratis!  |  Meest gekozen door ZZP'ers!",
+    "variant": "blue"
+  },
     "sponsoredOrder": 1
   }
   ,
@@ -55,7 +75,7 @@
     "websiteLink": "https://www.yukisoftware.com/",
     "logo": "public/img/yuki.svg",
     "summary": "Yuki is een online boekhoudplatform met sterke automatisering en realtime inzicht, gericht op samenwerking tussen ondernemer en boekhouder.",
-    "sponsoredOrder": 4
+    "sponsoredOrder": 5
   }
   ,
   {
@@ -70,7 +90,7 @@
     "websiteLink": "https://www.exact.com/nl",
     "logo": "public/img/exact.svg",
     "summary": "Exact is een compleet boekhoud- en ERP-platform voor MKB-bedrijven met focus op groei en controle.",
-    "sponsoredOrder": 5
+    "sponsoredOrder": 6
   },
   {
     "id": 6,
@@ -84,7 +104,7 @@
     "websiteLink": "https://www.informer.nl/",
     "logo": "public/img/informer.png",
     "summary": "Informer is een online boekhoudpakket met slimme automatisering, gericht op ondernemers en accountants.",
-    "sponsoredOrder": 6
+    "sponsoredOrder": 7
   }
   ,
   {
@@ -99,6 +119,6 @@
     "websiteLink": "https://www.snelstart.nl/",
     "logo": "public/img/snelstart.svg",
     "summary": "SnelStart is een gebruiksvriendelijk boekhoudpakket voor ZZP’ers en MKB-bedrijven.",
-    "sponsoredOrder": 7
+    "sponsoredOrder": 8
   }
 ]

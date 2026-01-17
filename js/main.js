@@ -16,9 +16,11 @@ const MARKET_CONFIG = {
     lang: "nl",
     footerText: "boekhouder-vergelijken.nl",
 
-    title: "Boekhouder Vergelijken – Vergelijk boekhouders & boekhoudsoftware",
+
+    title: "Boekhoudprogramma vergelijken – Vind de beste boekhoudsoftware",
     description:
-      "Vergelijk boekhouders en boekhoudsoftware op prijs, doelgroep en beoordeling. Vind snel wat bij jouw onderneming past.",
+      "Boekhoudprogramma vergelijken? Vergelijk de beste boekhoudsoftware voor zzp’ers en mkb op prijs, functies en gebruiksgemak. Actueel overzicht.",
+
     ogImage: "https://boekhouder-vergelijken.nl/public/img/og-default.jpg",
 
     accountantsPath: "/data/accountants-nl.json",
@@ -27,7 +29,13 @@ const MARKET_CONFIG = {
     articlesPage: "/articles",
     articlesTitle: "Artikelen over Boekhouden – Boekhouder Vergelijken",
     articlesDescription:
-      "Praktische artikelen over boekhouden, online boekhoudsoftware en het kiezen van de juiste boekhouder voor ZZP'ers en mkb.",
+      "Praktische artikelen over boekhouden, online boekhoudsoftware en het kiezen van de juiste oplossing voor zzp’ers en mkb.",
+
+
+    homeH1:
+      "Vind de beste boekhoudsoftware voor jouw bedrijf",
+    homeIntro:
+      "Op zoek naar het beste boekhoudprogramma? Wij helpen je boekhoudprogramma’s vergelijken op prijs, functies, gebruiksgemak en geschiktheid voor zzp’ers en mkb. Of je nu een eenvoudige online boekhouding zoekt of uitgebreide boekhoudsoftware met facturatie en btw-aangifte: bij ons vind je een actueel overzicht. Zo kies je snel het boekhoudprogramma dat past bij jouw onderneming.",
   },
 
   be: {
@@ -35,9 +43,11 @@ const MARKET_CONFIG = {
     lang: "nl",
     footerText: "boekhouder-vergelijken.be",
 
-    title: "Boekhouder Vergelijken België – Vergelijk boekhouders & boekhoudsoftware",
+
+    title: "Boekhoudprogramma vergelijken – Vind de beste boekhoudsoftware",
     description:
-      "Vergelijk boekhouders en boekhoudsoftware in België op prijs, doelgroep en beoordeling.",
+      "Vergelijk boekhoudsoftware voor zelfstandigen en KMO’s op prijs, functies en gebruiksgemak.",
+
     ogImage: "https://boekhouder-vergelijken.be/public/img/og-default.jpg",
 
     accountantsPath: "/data/accountants-be.json",
@@ -46,9 +56,15 @@ const MARKET_CONFIG = {
     articlesPage: "/articles",
     articlesTitle: "Artikelen over Boekhouden in België – Boekhouder Vergelijken",
     articlesDescription:
-      "Praktische artikelen voor zelfstandigen en KMO's in België over boekhouden, btw, e-facturatie en Peppol.",
+      "Praktische artikelen voor zelfstandigen en KMO’s in België over boekhouden, btw, e-facturatie en Peppol.",
+
+    homeH1:
+      "Boekhoudprogramma vergelijken? Vind de beste boekhoudsoftware voor jouw bedrijf",
+    homeIntro:
+      "Op zoek naar het beste boekhoudprogramma? Wij helpen je boekhoudprogramma’s vergelijken op prijs, functies, gebruiksgemak en geschiktheid voor eenmanszaken of bv’s. Of je nu een eenvoudige online boekhouding zoekt of uitgebreide boekhoudsoftware met facturatie en btw-aangifte: bij ons vind je een actueel overzicht. Zo kies je snel het boekhoudprogramma dat past bij jouw onderneming.",
   },
 };
+
 
 function setYearAndFooter() {
   const year = String(new Date().getFullYear());
@@ -202,10 +218,25 @@ async function initArticlesPage() {
   renderArticles(listEl, store.articles);
 }
 
+function applyHomeIntro() {
+  // alleen op de index waar #results bestaat
+  const resultsEl = document.getElementById("results");
+  if (!resultsEl) return;
+
+  const cfg = getCfg();
+
+  const h1 = document.getElementById("page-title");
+  if (h1 && cfg.homeH1) h1.textContent = cfg.homeH1;
+
+  const intro = document.getElementById("page-intro");
+  if (intro && cfg.homeIntro) intro.textContent = cfg.homeIntro;
+}
+
+
 document.addEventListener("DOMContentLoaded", async () => {
-  // market toepassen voor meta + footer/year
   applyMarketMeta();
   setYearAndFooter();
+  applyHomeIntro(); 
 
   try {
     const injected = await injectHeader();
@@ -217,3 +248,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error(err);
   }
 });
+

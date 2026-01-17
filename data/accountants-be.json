@@ -11,6 +11,10 @@
     "websiteLink": "https://www.awin1.com/cread.php?awinmid=118873&awinaffid=2717422&ued=https%3A%2F%2Fwww.accountable.eu%2Fnl-be%2F",
     "logo": "public/img/accountable.svg",
     "summary": "Accountable is een Belgisch boekhoudplatform voor zelfstandigen en freelancers, dat boekhouden combineert met slimme automatisering, Peppol-e-facturatie en eenvoudige btw-ondersteuning via een gebruiksvriendelijke app.",
+    "badge": {
+    "text": "Meest Complete Pakket voor Zelfstandigen!",
+    "variant": "blue"
+  },
     "sponsoredOrder": 1
   },
   {
@@ -25,7 +29,21 @@
     "websiteLink": "https://dexxter.cello.so/rxGpcjs3LCN",
     "logo": "public/img/dexxter.svg",
     "summary": "Dexxter is een Belgisch online boekhoudplatform voor zelfstandigen en starters, met focus op eenvoudige facturatie, Peppol-e-invoicing en een vlotte samenwerking met de boekhouder.",
-    "sponsoredOrder": 2
+    "sponsoredOrder": 4
+  },
+    {
+    "id": 4,
+    "name": "Silvasoft",
+    "slug": "silvasoft",
+    "monthlyFee": "13,95",
+    "rating": 7.6,
+    "clients": "Iedereen",
+    "features": ["Peppol Ready", "Dagboeken", "Flexibel"],
+    "moreInfoLink": "https://www.silvasoft.be/?src-rf=1_gvergbe",
+    "websiteLink": "https://www.silvasoft.be/?src-rf=1_gvergbe",
+    "logo": "public/img/silva.svg",
+    "summary": "Silvasoft is een online boekhoudpakket voor ondernemers en accountants, met functies voor boekhouding, facturatie, btw en rapportages.",
+    "sponsoredOrder": 3
   }
   ,
   {
@@ -40,6 +58,10 @@
     "websiteLink": "https://www.e-boekhouden.be/boekhoudprogramma?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994",
     "logo": "https://play-lh.googleusercontent.com/BczA4hPSBxn4_j2inFsCWQ8W1bMtWqCgAfBn-MAfU8PlJ6yECcsdSQk_bvVm0kXrBg",
     "summary": "e-Boekhouden.be is een populair en gebruiksvriendelijk online boekhoudpakket voor zelfstandigen in hoofdberoep en kleine ondernemers. Het biedt alle basisfunctionaliteiten voor facturatie, administratie en btw-aangifte, en is geschikt voor zowel starters als ervaren ondernemers.",
-    "sponsoredOrder": 3
+    "badge": {
+    "text": "15 Maanden Gratis voor Startende Ondernemers!",
+    "variant": "blue"
+  },
+    "sponsoredOrder": 2
   }
 ]

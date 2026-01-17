@@ -2,14 +2,58 @@
    card.css
 ========================= */
 .c-card {
-  background: var(--color-surface);
+  background: #fff;
   border-radius: var(--radius-md);
   padding: 1rem 1.1rem;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  position: relative;
+  z-index: 0;
+  margin-top: 20px;
+  overflow: visible;
 }
+
+.c-card.has-badge {
+  margin-top: 44px; /* ruimte voor tab */
+}
+
+
+/* blauwe tab ALLEEN bij cards met badge (aanrader) */
+.c-card.has-badge::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  top: -32px;      /* <-- WAS -44px → nu 12px lager */
+  height: 44px;
+
+  background: var(--color-brand);
+  border-radius: 14px;
+  z-index: -1;
+}
+.c-card.has-badge::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  top:0;
+  height:12px;                     /* overlap */
+  background:#fff;                 /* want card is #fff */
+  border-radius: var(--radius-md); /* <-- ipv alleen top corners */
+  z-index: 0;
+  pointer-events:none;
+}
+
+/* zorg dat je echte content boven die strip blijft */
+.c-card > *{
+  position: relative;
+  z-index: 1;
+}
+
+
 
 .c-card__header {
   display: grid;
@@ -25,6 +69,63 @@
   margin-top: var(--space-2);
   flex-wrap: wrap;
 }
+@media (max-width: 600px) {
+  .c-hero-intro__text,
+  #page-intro {
+    display: none;
+  }
+
+  .c-hero-intro {
+    margin-bottom: 16px; 
+  }
+}
+
+.c-hero-intro {
+  margin: 32px auto 22px;
+  max-width: 980px;
+  padding: 0 16px; 
+}
+
+.c-hero-intro h1,
+#page-title {
+  font-size: clamp(1.75rem, 2.4vw, 2.35rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  color: #111;
+}
+
+/* subtiele “brand” accent zonder center */
+.c-hero-intro h1::after,
+#page-title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: var(--color-brand);
+  opacity: 0.9;
+}
+
+.c-hero-intro__text,
+#page-intro {
+  max-width: 72ch;
+  margin: 0;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+/* optioneel: maak belangrijke woorden blauw via <strong> in je intro */
+.c-hero-intro__text strong,
+#page-intro strong {
+  color: var(--color-brand);
+  font-weight: 700;
+}
+
+
+
+
 
 @media (min-width: 768px) {
   .c-card__toprow {
@@ -119,6 +220,35 @@
   padding: 0.2rem 0.5rem;
   margin: 0 0.25rem 0.25rem 0;
 }
+
+/* wrapper die precies OP de tab ligt (voor de tekst) */
+.c-card__pillwrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  top: -32px;      /* <-- zelfde waarde */
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  transform: translateY(-5px);
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* badge tekst zelf */
+.c-pill-badge {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+
 
 .c-card__actions {
   display: flex;

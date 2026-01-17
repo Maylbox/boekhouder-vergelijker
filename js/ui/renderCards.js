@@ -29,7 +29,7 @@ export function renderCards(container, list) {
     return ao - bo;
   });
 
-  container.innerHTML = items.map((acc) => {
+  container.innerHTML = items.map((acc, idx) => {
     const name = escapeHtml(acc.name || "");
     const logo = acc.logo ? escapeHtml(acc.logo) : "";
     const clients = escapeHtml(acc.clients || "n.v.t.");
@@ -91,27 +91,48 @@ const websiteBtn = outLink
       </div>
     `;
 
-    const isFeatured = Number(acc.sponsoredOrder) === 1;
+    const isFeatured = idx < 3;
 
-    return `
-      <article class="c-card ${isFeatured ? "c-card--featured" : ""}">
-        <div class="c-card__header">
-          ${logo
-            ? `<img src="${logo}" alt="Logo ${name}" class="c-card__logo">`
-            : `<div class="c-card__logo" aria-hidden="true"></div>`}
+    const pillBadge =
+  acc.badge
+    ? (typeof acc.badge === "string"
+        ? `<div class="c-pill-badge">${escapeHtml(acc.badge)}</div>`
+        : `<div class="c-pill-badge">${escapeHtml(acc.badge.text || "")}</div>`)
+    : "";
 
-          <div class="c-card__info">
-            <h2 class="c-card__title">${name}</h2>
-            ${topRowHtml}
-            ${locationText ? `<div class="c-card__meta">${locationText}</div>` : ""}
-            <div class="c-card__meta">Doelgroep: ${clients}</div>
-          </div>
-        </div>
+const badgeText =
+  acc.badge
+    ? (typeof acc.badge === "string" ? acc.badge : (acc.badge.text || ""))
+    : "";
 
-        ${summaryHtml}
-        ${featuresHtml}
-        ${actionsHtml}
-      </article>
-    `;
+const hasBadge = !!badgeText;
+
+const badgeHtml = hasBadge
+  ? `<div class="c-pill-badge">${escapeHtml(badgeText)}</div>`
+  : "";
+
+return `
+  <article class="c-card ${isFeatured ? "c-card--featured" : ""} ${hasBadge ? "has-badge" : ""}">
+    ${hasBadge ? `<div class="c-card__pillwrap"><div class="c-pill-badge">${escapeHtml(badgeText)}</div></div>` : ""}
+
+    <div class="c-card__header">
+      ${logo
+        ? `<img src="${logo}" alt="Logo ${name}" class="c-card__logo">`
+        : `<div class="c-card__logo" aria-hidden="true"></div>`}
+
+      <div class="c-card__info">
+        <h2 class="c-card__title">${name}</h2>
+        ${topRowHtml}
+        ${locationText ? `<div class="c-card__meta">${locationText}</div>` : ""}
+        <div class="c-card__meta">Doelgroep: ${clients}</div>
+      </div>
+    </div>
+
+    ${summaryHtml}
+    ${featuresHtml}
+    ${actionsHtml}
+  </article>
+`;
+
   }).join("");
 }
