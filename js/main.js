@@ -16,13 +16,14 @@ const MARKET_CONFIG = {
     lang: "nl",
     footerText: "boekhouder-vergelijken.nl",
 
-    // index
     title: "Boekhouder Vergelijken – Vergelijk boekhouders & boekhoudsoftware",
     description:
       "Vergelijk boekhouders en boekhoudsoftware op prijs, doelgroep en beoordeling. Vind snel wat bij jouw onderneming past.",
     ogImage: "https://boekhouder-vergelijken.nl/public/img/og-default.jpg",
 
-    // pages
+    accountantsPath: "/data/accountants-nl.json",
+    articlesPath: "/data/articles-nl.json",
+
     articlesPage: "/articles.html",
     articlesTitle: "Artikelen over Boekhouden – Boekhouder Vergelijken",
     articlesDescription:
@@ -39,12 +40,17 @@ const MARKET_CONFIG = {
       "Vergelijk boekhouders en boekhoudsoftware in België op prijs, doelgroep en beoordeling.",
     ogImage: "https://boekhouder-vergelijken.be/public/img/og-default.jpg",
 
+
+    accountantsPath: "/data/accountants-be.json",
+    articlesPath: "/data/articles-be.json",
+
     articlesPage: "/artikelen.html",
     articlesTitle: "Artikelen over Boekhouden in België – Boekhouder Vergelijken",
     articlesDescription:
       "Praktische artikelen voor zelfstandigen en KMO's in België over boekhouden, btw, e-facturatie en Peppol.",
   },
 };
+
 
 function getMarket() {
   const host = window.location.hostname.toLowerCase();
