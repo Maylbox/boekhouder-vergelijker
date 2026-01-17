@@ -249,32 +249,25 @@
 }
 @media (max-width: 600px) {
   .c-card.has-badge::before {
-    height: 56px;     /* iets hoger */
-    top: -44px;
-    border-radius: 16px;
+    height: 64px;     /* meer hoogte = meer ruimte */
+    top: -52px;
+    border-radius: 18px;
   }
 
   .c-card.has-badge {
-    margin-top: 56px;
+    margin-top: 64px;
   }
 
   .c-card__pillwrap {
-    height: 56px;
-    top: -44px;
-
-    align-items: flex-start;   /* tekst niet exact center */
-    padding: 10px 14px 18px;   /* ↑↑↑  extra onderruimte */
-    transform: translateY(-2px);
+    height: 64px;
+    top: -52px;
   }
 
   .c-pill-badge {
     font-size: 0.85rem;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 }
-
-
-
 
 .c-card__actions {
   display: flex;
