@@ -42,7 +42,7 @@
   top:0;
   height:12px;                     /* overlap */
   background:#fff;                 /* want card is #fff */
-  border-radius: var(--radius-md); /* <-- ipv alleen top corners */
+  border-radius: 0;   
   z-index: 0;
   pointer-events:none;
 }
@@ -247,6 +247,32 @@
   font-weight: 600;
   line-height: 1;
 }
+@media (max-width: 600px) {
+  .c-card.has-badge::before {
+    height: 56px;     /* iets hoger */
+    top: -44px;
+    border-radius: 16px;
+  }
+
+  .c-card.has-badge {
+    margin-top: 56px;
+  }
+
+  .c-card__pillwrap {
+    height: 56px;
+    top: -44px;
+
+    align-items: flex-start;   /* tekst niet exact center */
+    padding: 10px 14px 18px;   /* ↑↑↑  extra onderruimte */
+    transform: translateY(-2px);
+  }
+
+  .c-pill-badge {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+}
+
 
 
 
