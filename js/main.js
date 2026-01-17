@@ -50,6 +50,16 @@ const MARKET_CONFIG = {
       "Praktische artikelen voor zelfstandigen en KMO's in België over boekhouden, btw, e-facturatie en Peppol.",
   },
 };
+function setYearAndFooter() {
+  const year = String(new Date().getFullYear());
+
+  const y = document.getElementById("year");
+  if (y) y.textContent = year;
+
+  const cfg = getCfg();
+  const footerP = document.querySelector(".c-footer p");
+  if (footerP) footerP.textContent = `© ${year} ${cfg.footerText}`;
+}
 
 
 function getMarket() {
