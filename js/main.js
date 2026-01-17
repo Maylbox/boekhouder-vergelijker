@@ -24,7 +24,7 @@ const MARKET_CONFIG = {
     accountantsPath: "/data/accountants-nl.json",
     articlesPath: "/data/articles-nl.json",
 
-    articlesPage: "/articles.html",
+    articlesPage: "/articles",
     articlesTitle: "Artikelen over Boekhouden – Boekhouder Vergelijken",
     articlesDescription:
       "Praktische artikelen over boekhouden, online boekhoudsoftware en het kiezen van de juiste boekhouder voor ZZP'ers en mkb.",
@@ -40,16 +40,16 @@ const MARKET_CONFIG = {
       "Vergelijk boekhouders en boekhoudsoftware in België op prijs, doelgroep en beoordeling.",
     ogImage: "https://boekhouder-vergelijken.be/public/img/og-default.jpg",
 
-
     accountantsPath: "/data/accountants-be.json",
     articlesPath: "/data/articles-be.json",
 
-    articlesPage: "/artikelen.html",
+    articlesPage: "/articles",
     articlesTitle: "Artikelen over Boekhouden in België – Boekhouder Vergelijken",
     articlesDescription:
       "Praktische artikelen voor zelfstandigen en KMO's in België over boekhouden, btw, e-facturatie en Peppol.",
   },
 };
+
 function setYearAndFooter() {
   const year = String(new Date().getFullYear());
 
@@ -74,8 +74,11 @@ function getCfg() {
 
 function isArticlesPage() {
   const p = (window.location.pathname || "/").toLowerCase();
-  return p.endsWith("/articles.html") || p.endsWith("/artikelen.html");
+  const path = p !== "/" ? p.replace(/\/+$/, "") : p; // strip trailing slash
+  return path === "/articles" || path.endsWith("/articles.html");
 }
+
+
 
 function ensureMeta(name, attr = "name") {
   let el = document.querySelector(`meta[${attr}="${name}"]`);
