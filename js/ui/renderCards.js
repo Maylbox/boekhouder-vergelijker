@@ -19,6 +19,12 @@ function buildLocation(city, country) {
   if (c && co) return `${c}, ${co}`;
   return c || co;
 }
+function normalizeLogoPath(logo) {
+  const s = String(logo || "").trim();
+  if (!s) return "";
+  if (/^https?:\/\//i.test(s) || s.startsWith("data:")) return s; // extern of inline
+  return s.startsWith("/") ? s : `/${s}`; // maak absolute path
+}
 
 export function renderCards(container, list) {
   if (!container) return;
@@ -31,7 +37,8 @@ export function renderCards(container, list) {
 
   container.innerHTML = items.map((acc, idx) => {
     const name = escapeHtml(acc.name || "");
-    const logo = acc.logo ? escapeHtml(acc.logo) : "";
+    const logo = acc.logo ? escapeHtml(normalizeLogoPath(acc.logo)) : "";
+
     const clients = escapeHtml(acc.clients || "n.v.t.");
     const summary = acc.summary ? escapeHtml(acc.summary) : "";
 
