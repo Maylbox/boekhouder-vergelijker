@@ -41,6 +41,10 @@
     "websiteLink": "https://www.silvasoft.nl/?src-rf=1_gvergel",
     "logo": "public/img/silva.svg",
     "summary": "Silvasoft is een online boekhoudpakket voor ondernemers en accountants, met functies voor boekhouding, facturatie, btw en rapportages.",
+    "badge": {
+    "text": "Stel Zelf je Abonnement Samen, en Kies Alleen Wat je Echt Gebruikt!",
+    "variant": "blue"
+  },
     "sponsoredOrder": 2
   }
   ,
