@@ -25,5 +25,14 @@
     "date": "2025-12-02",
     "content": "articles/boekhouder-te-duur-boekhouden-kan-je-zelf-met-een-boekhoudprogramma.html",
     "category": "Boekhouden"
-  }
+  },
+  {
+  "id": "veranderingen-ondernemers-2026",
+  "title": "Dit verandert er voor ondernemers in Nederland in 2026",
+  "description": "2026 brengt veranderingen voor ondernemers in Nederland. Lees wat dit betekent voor administratie, controles en waarom digitaal werken steeds belangrijker wordt.",
+  "thumbnail": "public/articles/stock4.jpeg",
+  "date": "2026-02-07",
+  "content": "articles/veranderingen-ondernemers-2026.html",
+  "category": "Boekhouden"
+}
 ]
