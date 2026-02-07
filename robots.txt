@@ -2,5 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://boekhouder-vergelijken.nl/sitemap.xml
-Sitemap: https://boekhouder-vergelijken.nl/sitemap-nl.xml
-Sitemap: https://boekhouder-vergelijken.nl/sitemap-be.xml
