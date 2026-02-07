@@ -173,5 +173,19 @@
     "logo": "/public/img/snelstart.svg",
     "summary": "SnelStart is een gebruiksvriendelijk boekhoudpakket voor ZZP’ers en MKB-bedrijven.",
     "sponsoredOrder": 6
+  },
+  {
+    "id": 12,
+    "name": "eAccounting by VISMA",
+    "slug": "visma",
+    "monthlyFee": "11",
+    "rating": 6.8,
+    "clients": "ZZP, MKB",
+    "features": ["Periodieke facturatie", "Realtime overzicht", "Automatische betaallinks"],
+    "moreInfoLink": "https://lt45.net/c/?si=11068&li=1492000&wi=415660&ws=&dl=eaccounting%2F",
+    "websiteLink": "https://lt45.net/c/?si=11068&li=1492000&wi=415660&ws=&dl=eaccounting%2F",
+    "logo": "/public/img/visma.svg",
+    "summary": "eAccounting is hét boekhoudpakket dat boekhouden leuk maakt. Geen ingewikkelde en stoffige software, maar een toegankelijke, veelzijdige oplossing die meegroeit met je bedrijf. Gericht op jou én op de toekomst.",
+    "sponsoredOrder": 16
   }
 ]
