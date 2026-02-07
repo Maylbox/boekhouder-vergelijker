@@ -26,6 +26,7 @@ export async function onRequestGet({ params, request, env }) {
     moneymonk: { site: "https://www.moneymonk.nl/", info: "https://www.moneymonk.nl/" },
     myfinance: { site: "https://lt45.net/c/?si=12956&li=1571606&wi=415660&ws=&dl=", info: "https://lt45.net/c/?si=12956&li=1571606&wi=415660&ws=&dl=" },
     snelstart: { site: "https://jf79.net/c/?si=16383&li=1703816&wi=415660&ws=&dl=", info: "https://jf79.net/c/?si=16383&li=1703816&wi=415660&ws=&dl=" },
+    rompslomp: { site: "https://lt45.net/c/?si=11894&li=1532720&wi=415660&ws=", info: "https://lt45.net/c/?si=11894&li=1532720&wi=415660&ws=" },
     bunni: { site: "https://jf79.net/c/?si=16546&li=1710742&wi=415660&ws=&dl=", info: "https://jf79.net/c/?si=16546&li=1710742&wi=415660&ws=&dl=" },
     visma: { site: "https://lt45.net/c/?si=11068&li=1492000&wi=415660&ws=&dl=eaccounting%2F", info: "https://lt45.net/c/?si=11068&li=1492000&wi=415660&ws=&dl=eaccounting%2F" },
     jortt: { site: "https://jf79.net/c/?si=16611&li=1713658&wi=415660&ws=&dl=", info: "https://jf79.net/c/?si=16611&li=1713658&wi=415660&ws=&dl=" },
