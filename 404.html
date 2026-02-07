@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Pagina niet gevonden – Boekhouder Vergelijken</title>
+  <meta name="robots" content="noindex,follow">
+
+  <link rel="preload" as="image" href="/public/img/logo.png" type="image/png" fetchpriority="high">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/public/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/public/favicon-192.png">
+  <link rel="manifest" href="/public/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+
+<header id="site-header" class="c-header"></header>
+
+<script>
+  try {
+    const cached = sessionStorage.getItem("bv_header_v1");
+    if (cached) document.getElementById("site-header").innerHTML = cached;
+  } catch {}
+</script>
+
+<main class="o-container o-container--wide">
+  <div class="o-main">
+
+    <section class="c-hero-intro" style="text-align:center;">
+      <h1>Deze pagina bestaat niet (404)</h1>
+
+      <p class="c-hero-intro__text" style="max-width:640px;margin:0 auto;">
+        De pagina die je zocht is verplaatst, verwijderd of bestaat niet (meer).
+        Je kunt hieronder terug naar de homepage of onze artikelen bekijken.
+      </p>
+
+      <div style="margin-top:2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="/" class="c-button c-button--primary">
+          Naar de homepage
+        </a>
+
+        <a href="/articles.html" class="c-button">
+          Bekijk artikelen
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="c-footer">
+  <div class="o-container">
+    <p>© <span id="year"></span> boekhouder-vergelijken.be / .nl</p>
+  </div>
+</footer>
+
+<script type="module" src="/js/main.js"></script>
+
+<script>
+  const y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
