@@ -26,7 +26,7 @@
     "websiteLink": "https://bdt9.net/c/?si=19080&li=1819984&wi=415660&ws=&dl=aanmelden%2F",
     "logo": "https://s3-eu-west-1.amazonaws.com/tpd/logos/4bf1761d00006400050c8f52/0x0.png",
     "summary": "Moneybird is een eenvoudig, online boekhoudpakket dat is ontworpen om ondernemers te helpen met hun boekhouding, met een focus op een gebruiksvriendelijke en automatische aanpak.",
-    "sponsoredOrder": 5
+    "sponsoredOrder": 6
   }
   ,
      {
@@ -66,6 +66,21 @@
   },
     "sponsoredOrder": 2
   }
+   ,
+     {
+    "id": 10,
+    "name": "Jortt",
+    "slug": "jortt",
+    "monthlyFee": "9,95",
+    "rating": 9.4,
+    "clients": "MKB, ZZP",
+    "features": ["Boekhoudbot", "Automatische bankkoppeling", "Automatisch incasseren"],
+    "moreInfoLink": "https://jf79.net/c/?si=16611&li=1713658&wi=415660&ws=&dl=",
+    "websiteLink": "https://jf79.net/c/?si=16611&li=1713658&wi=415660&ws=&dl=",
+    "logo": "/public/img/jortt.svg",
+    "summary": "Jortt is een Nederlands online boekhoudprogramma dat met een slimme boekhoudbot automatisch de administratie en belastingaangiftes van ondernemers verzorgt.",
+    "sponsoredOrder": 5
+  }
   ,
   {
     "id": 3,
@@ -98,7 +113,7 @@
     "websiteLink": "https://www.yukisoftware.com/",
     "logo": "/public/img/yuki.svg",
     "summary": "Yuki is een online boekhoudplatform met sterke automatisering en realtime inzicht, gericht op samenwerking tussen ondernemer en boekhouder.",
-    "sponsoredOrder": 6
+    "sponsoredOrder": 7
   }
   ,
   {
@@ -113,7 +128,7 @@
     "websiteLink": "https://www.exact.com/nl",
     "logo": "/public/img/exact.svg",
     "summary": "Exact is een compleet boekhoud- en ERP-platform voor MKB-bedrijven met focus op groei en controle.",
-    "sponsoredOrder": 7
+    "sponsoredOrder": 8
   },
   {
     "id": 6,
@@ -127,7 +142,7 @@
     "websiteLink": "https://www.informer.nl/",
     "logo": "/public/img/informer.png",
     "summary": "Informer is een online boekhoudpakket met slimme automatisering, gericht op ondernemers en accountants.",
-    "sponsoredOrder": 8
+    "sponsoredOrder": 9
   }
   ,
   {
@@ -142,6 +157,6 @@
     "websiteLink": "https://www.snelstart.nl/",
     "logo": "/public/img/snelstart.svg",
     "summary": "SnelStart is een gebruiksvriendelijk boekhoudpakket voor ZZP’ers en MKB-bedrijven.",
-    "sponsoredOrder": 9
+    "sponsoredOrder": 10
   }
 ]
