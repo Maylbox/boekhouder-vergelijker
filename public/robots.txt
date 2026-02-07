@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boekhouder-vergelijken.nl/sitemap-nl.xml
+Sitemap: https://boekhouder-vergelijken.be/sitemap-be.xml

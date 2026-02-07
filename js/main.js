@@ -130,9 +130,10 @@ function applyMarketMeta() {
 
   const pageTitle = onArticles ? cfg.articlesTitle : cfg.title;
   const pageDesc = onArticles ? cfg.articlesDescription : cfg.description;
-  const pagePath = onArticles ? cfg.articlesPage : "/";
+  const currentPath = (window.location.pathname || "/") + (window.location.search || "");
+  
+  const pageUrl = `https://${cfg.domain}${currentPath}`;
 
-  const pageUrl = `https://${cfg.domain}${pagePath}`;
 
   // html lang + title
   document.documentElement.lang = cfg.lang || "nl";
