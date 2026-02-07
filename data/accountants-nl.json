@@ -11,6 +11,21 @@
     "websiteLink": "https://www.moneymonk.nl/",
     "logo": "/public/img/moneymonk.svg",
     "summary": "MoneyMonk is een eenvoudig en overzichtelijk online boekhoudpakket voor ZZP’ers en kleine ondernemers, gericht op snel en efficiënt boekhouden.",
+    "sponsoredOrder": 5
+
+  },
+  {
+    "id": 11,
+    "name": "Bunni",
+    "slug": "bunni",
+    "monthlyFee": "10,-",
+    "rating": 9.8,
+    "clients": "ZZP",
+    "features": ["Rittenregistratie ", "Factureren", "Offertes"],
+    "moreInfoLink": "https://jf79.net/c/?si=16546&li=1710742&wi=415660&ws=&dl=",
+    "websiteLink": "https://jf79.net/c/?si=16546&li=1710742&wi=415660&ws=&dl=",
+    "logo": "/public/img/bunni.png",
+    "summary": "BUNNI is opgericht met een missie: boekhouden super simpel en verslavend leuk maken.",
     "sponsoredOrder": 4
 
   },
