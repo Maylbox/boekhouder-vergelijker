@@ -35,7 +35,7 @@ export async function onRequestGet({ params, request, env }) {
 
     "e-boekhouden": {
       nl: { site: "https://www.e-boekhouden.nl/p/eenvoudig-online-boekhouden?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994", info: "https://boekhouder-vergelijken.nl/articles/e-boekhouden-review-2026" },
-      be: { site: "https://www.e-boekhouden.be/boekhoudprogramma?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994", info: "https://www.e-boekhouden.be/boekhoudprogramma?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994" }
+      be: { site: "https://www.e-boekhouden.be/boekhoudprogramma?prtnr=8994&utm_source=www.boekhouder-vergelijken.nl&utm_medium=affiliate&utm_campaign=clicks.nu-8994", info: "https://boekhouder-vergelijken.be/articles/e-boekhouden-be-review-2026" }
     },
     silvasoft: {
   nl: {
