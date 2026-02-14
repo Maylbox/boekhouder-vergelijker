@@ -24,6 +24,7 @@ export async function onRequestGet({ params, request, env }) {
 
   const DEST = {
     moneymonk: { site: "https://www.moneymonk.nl/", info: "https://www.moneymonk.nl/" },
+    shine: { site: "https://glp8.net/c/?si=21197&li=1903309&wi=415660&ws=", info: "https://glp8.net/c/?si=21197&li=1903309&wi=415660&ws=" },
     myfinance: { site: "https://lt45.net/c/?si=12956&li=1571606&wi=415660&ws=&dl=", info: "https://lt45.net/c/?si=12956&li=1571606&wi=415660&ws=&dl=" },
     snelstart: { site: "https://jf79.net/c/?si=16383&li=1703816&wi=415660&ws=&dl=", info: "https://jf79.net/c/?si=16383&li=1703816&wi=415660&ws=&dl=" },
     rompslomp: { site: "https://lt45.net/c/?si=11894&li=1532720&wi=415660&ws=", info: "https://lt45.net/c/?si=11894&li=1532720&wi=415660&ws=" },

@@ -1,6 +1,21 @@
 [
   {
     "id": 1,
+    "name": "Shine",
+    "slug": "shine",
+    "monthlyFee": "9,-",
+    "rating": 9.4,
+    "clients": "ZZP, BV",
+    "features": ["Bonnetjes scannen", "Klantenbeheer", "Factureren in meerdere valuta"],
+    "moreInfoLink": "https://glp8.net/c/?si=21197&li=1903309&wi=415660&ws=",
+    "websiteLink": "https://glp8.net/c/?si=21197&li=1903309&wi=415660&ws=",
+    "logo": "/public/img/shine.svg",
+    "summary": "Shine is een snelgroeiende online boekhoudtool voor zzp’ers en freelancers die eenvoudig en modern willen boekhouden zonder gedoe.",
+    "sponsoredOrder": 5
+
+  },
+  {
+    "id": 13,
     "name": "Moneymonk",
     "slug": "moneymonk",
     "monthlyFee": "7,50",
@@ -11,7 +26,7 @@
     "websiteLink": "https://www.moneymonk.nl/",
     "logo": "/public/img/moneymonk.svg",
     "summary": "MoneyMonk is een eenvoudig en overzichtelijk online boekhoudpakket voor ZZP’ers en kleine ondernemers, gericht op snel en efficiënt boekhouden.",
-    "sponsoredOrder": 5
+    "sponsoredOrder": 30
 
   },
   {
@@ -26,7 +41,7 @@
     "websiteLink": "https://jf79.net/c/?si=16546&li=1710742&wi=415660&ws=&dl=",
     "logo": "/public/img/bunni.png",
     "summary": "BUNNI is opgericht met een missie: boekhouden super simpel en verslavend leuk maken.",
-    "sponsoredOrder": 4
+    "sponsoredOrder": 10
 
   },
    {
@@ -60,7 +75,7 @@
     "websiteLink": "https://bdt9.net/c/?si=19080&li=1819984&wi=415660&ws=&dl=aanmelden%2F",
     "logo": "https://s3-eu-west-1.amazonaws.com/tpd/logos/4bf1761d00006400050c8f52/0x0.png",
     "summary": "Moneybird is een eenvoudig, online boekhoudpakket dat is ontworpen om ondernemers te helpen met hun boekhouding, met een focus op een gebruiksvriendelijke en automatische aanpak.",
-    "sponsoredOrder": 7
+    "sponsoredOrder": 60
   }
   ,
      {
@@ -75,7 +90,7 @@
     "websiteLink": "https://www.silvasoft.nl/?src-rf=1_gvergel",
     "logo": "/public/img/silva.svg",
     "summary": "Silvasoft is een online boekhoudpakket voor ondernemers en accountants, met functies voor boekhouding, facturatie, btw en rapportages.",
-    "sponsoredOrder": 4
+    "sponsoredOrder": 20
   }
    ,
      {
@@ -109,7 +124,7 @@
     "websiteLink": "https://jf79.net/c/?si=16611&li=1713658&wi=415660&ws=&dl=",
     "logo": "/public/img/jortt.svg",
     "summary": "Jortt is een Nederlands online boekhoudprogramma dat met een slimme boekhoudbot automatisch de administratie en belastingaangiftes van ondernemers verzorgt.",
-    "sponsoredOrder": 5
+    "sponsoredOrder": 40
   }
   ,
   {
@@ -143,7 +158,7 @@
     "websiteLink": "https://www.yukisoftware.com/",
     "logo": "/public/img/yuki.svg",
     "summary": "Yuki is een online boekhoudplatform met sterke automatisering en realtime inzicht, gericht op samenwerking tussen ondernemer en boekhouder.",
-    "sponsoredOrder": 8
+    "sponsoredOrder": 70
   }
   ,
   {
@@ -158,7 +173,7 @@
     "websiteLink": "https://www.exact.com/nl",
     "logo": "/public/img/exact.svg",
     "summary": "Exact is een compleet boekhoud- en ERP-platform voor MKB-bedrijven met focus op groei en controle.",
-    "sponsoredOrder": 9
+    "sponsoredOrder": 80
   },
   {
     "id": 6,
@@ -172,7 +187,7 @@
     "websiteLink": "https://www.informer.nl/",
     "logo": "/public/img/informer.png",
     "summary": "Informer is een online boekhoudpakket met slimme automatisering, gericht op ondernemers en accountants.",
-    "sponsoredOrder": 10
+    "sponsoredOrder": 90
   }
   ,
   {
@@ -187,7 +202,7 @@
     "websiteLink": "https://jf79.net/c/?si=16383&li=1703816&wi=415660&ws=&dl=",
     "logo": "/public/img/snelstart.svg",
     "summary": "SnelStart is een gebruiksvriendelijk boekhoudpakket voor ZZP’ers en MKB-bedrijven.",
-    "sponsoredOrder": 6
+    "sponsoredOrder": 50
   },
   {
     "id": 12,
@@ -201,6 +216,6 @@
     "websiteLink": "https://lt45.net/c/?si=11068&li=1492000&wi=415660&ws=&dl=eaccounting%2F",
     "logo": "/public/img/visma.svg",
     "summary": "eAccounting is hét boekhoudpakket dat boekhouden leuk maakt. Geen ingewikkelde en stoffige software, maar een toegankelijke, veelzijdige oplossing die meegroeit met je bedrijf. Gericht op jou én op de toekomst.",
-    "sponsoredOrder": 16
+    "sponsoredOrder": 100
   }
 ]
