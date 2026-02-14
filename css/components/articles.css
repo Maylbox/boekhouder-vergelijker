@@ -7,6 +7,15 @@
   table-layout: fixed;
   font-size: 0.95rem;
 }
+.c-table-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.c-table-list li {
+  margin-bottom: 0.35rem;
+}
 
 .c-table th,
 .c-table td {
