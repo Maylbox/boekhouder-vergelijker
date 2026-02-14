@@ -44,7 +44,7 @@ export async function onRequestGet({ params, request, env }) {
   },
   be: {
     site: "https://www.silvasoft.be/?src-rf=1_gvergbe",
-    info: "https://www.silvasoft.be/?src-rf=1_gvergbe"
+    info: "https://boekhouder-vergelijken.be/articles/silvasoft-be-review-2026"
   }
 },
 
