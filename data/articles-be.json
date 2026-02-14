@@ -25,5 +25,14 @@
   "date": "2026-02-14",
   "content": "articles/boekhouders-zijn-duur-belgie.html",
   "category": "Boekhouden"
-}
+},
+  {
+    "id": "boekhouder-vs-zelf-boekhouden-belgie",
+    "title": "Boekhouder vs. zelf boekhouden in België: wat past bij jou?",
+    "description": "Wanneer is een externe boekhouder slim en wanneer kun je beter voor software kiezen?",
+    "thumbnail": "public/articles/stock2.jpg",
+    "date": "2025-02-14",
+    "content": "articles/boekhouder-vs-zelf-boekhouden-belgie.html",
+    "category": "Boekhouden"
+  }
 ]
