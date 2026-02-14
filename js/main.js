@@ -30,12 +30,10 @@ const MARKET_CONFIG = {
     articlesTitle: "Artikelen over Boekhouden – Boekhouder Vergelijken",
     articlesDescription:
       "Praktische artikelen over boekhouden, online boekhoudsoftware en het kiezen van de juiste oplossing voor zzp’ers en mkb.",
-
-
     homeH1:
-      "Vind de beste boekhoudsoftware voor jouw bedrijf",
+      "Boekhoudprogramma vergelijken? Vind de beste boekhoudsoftware voor jouw bedrijf",
     homeIntro:
-      "Op zoek naar het beste boekhoudprogramma? Wij helpen je boekhoudprogramma’s vergelijken op prijs, functies, gebruiksgemak en geschiktheid voor zzp’ers en mkb. Of je nu een eenvoudige online boekhouding zoekt of uitgebreide boekhoudsoftware met facturatie en btw-aangifte: bij ons vind je een actueel overzicht. Zo kies je snel het boekhoudprogramma dat past bij jouw onderneming.",
+      "Op zoek naar het beste boekhoudprogramma? Wij helpen je boekhoudprogramma’s vergelijken op prijs, functies, gebruiksgemak en geschiktheid voor eenmanszaken of bv’s. Of je nu een eenvoudige online boekhouding zoekt of uitgebreide boekhoudsoftware met facturatie en btw-aangifte: bij ons vind je een actueel overzicht. Zo kies je snel het boekhoudprogramma dat past bij jouw onderneming.",
   },
 
   be: {
@@ -59,7 +57,7 @@ const MARKET_CONFIG = {
       "Praktische artikelen voor zelfstandigen en KMO’s in België over boekhouden, btw, e-facturatie en Peppol.",
 
     homeH1:
-      "Boekhoudprogramma vergelijken? Vind de beste boekhoudsoftware voor jouw bedrijf",
+      "Boekhoudprogramma vergelijken? Vind de beste boekhoudsoftware in België voor jouw bedrijf",
     homeIntro:
       "Op zoek naar het beste boekhoudprogramma? Wij helpen je boekhoudprogramma’s vergelijken op prijs, functies, gebruiksgemak en geschiktheid voor eenmanszaken of bv’s. Of je nu een eenvoudige online boekhouding zoekt of uitgebreide boekhoudsoftware met facturatie en btw-aangifte: bij ons vind je een actueel overzicht. Zo kies je snel het boekhoudprogramma dat past bij jouw onderneming.",
   },
