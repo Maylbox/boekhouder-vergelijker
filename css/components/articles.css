@@ -1,7 +1,55 @@
 /* =========================
    articles.css
 ========================= */
+.c-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.95rem;
+}
 
+.c-table th,
+.c-table td {
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: top;
+}
+.c-table thead th:nth-child(1),
+.c-table tbody td:nth-child(1) {
+  width: 30%;
+}
+
+.c-table thead th:nth-child(2),
+.c-table tbody td:nth-child(2) {
+  width: 20%;
+}
+
+.c-table thead th:nth-child(3),
+.c-table tbody td:nth-child(3) {
+  width: 50%;
+}
+
+.c-table thead th {
+  font-weight: 600;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.c-table tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.c-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.c-table tbody tr:hover {
+  background: rgba(11, 94, 215, 0.03);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
 .c-articles { margin-top: var(--space-5); }
 
 .c-articles__intro {
@@ -133,5 +181,6 @@
     font-size: 0.78rem;
     margin-bottom: var(--space-2);
   }
+  
 }
 
